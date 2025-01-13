@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
       <div className="md:hidden">
         <button
           onClick={() => setMenuOpen(!isMenuOpen)}
-          className="text-primary"
+          className="text-white"
           aria-label="Toggle Menu"
         >
           {isMenuOpen ? '✖' : '☰'}

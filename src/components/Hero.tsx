@@ -11,9 +11,9 @@ const Hero: React.FC = () => {
       {/* Pattern */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent opacity-25 bg-pattern"></div>
 
-      <div className="relative z-10">
-        <h1 className="text-4xl font-bold">Impulsione Seu Negócio com Tecnologia de Alto Impacto</h1>
-        <p className="mt-4 text-xl">Soluções que Transformam Desafios em Resultados, Elevando Sua Empresa ao Próximo Nível.</p>
+      <div className="relative z-10 w-9/12">
+        <h1 className="text-5xl font-bold">Impulsione Seu Negócio com Tecnologia de Alto Impacto</h1>
+        <p className="mt-4 text-2xl">Soluções que Transformam Desafios em Resultados,<br />Elevando Sua Empresa ao Próximo Nível.</p>
         <Link
       href="#about"
       className="mt-6 inline-block px-6 py-3 bg-secondary text-white rounded-lg shadow-md transition-colors duration-300 ease-in-out hover:bg-green-600"
