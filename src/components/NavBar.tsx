@@ -36,12 +36,13 @@ const Navbar: React.FC = () => {
           className="text-white text-2xl"
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+          {/*isMenuOpen ? <FaTimes /> : <FaBars />*/}
+          <FaBars />
         </button>
 
         {/* Fullscreen Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-black bg-opacity-90 text-white flex flex-col items-center justify-center space-y-6 transform transition-all duration-700 ease-in-out ${
+          className={`fixed inset-0 bg-primary text-white flex flex-col items-center justify-center space-y-6 transform transition-all duration-700 ease-in-out ${
             isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
           }`}
         >
