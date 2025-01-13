@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#007BFF',  // Azul Elétrico
+        primary: '#0984e3',  // Azul Elétrico
         secondary: '#28A745',  // Verde Limão
         background: '#F8F9FA',  // Cinza Claro
         footer: '#343A40',  // Cinza Escuro

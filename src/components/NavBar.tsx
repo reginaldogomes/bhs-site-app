@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 const menuItems = [
-  { label: 'Serviços', href: '#services' },
-  { label: 'Sobre', href: '#about' },
-  { label: 'Contato', href: '#contact' },
+  { label: 'Serviços', href: '/services' },
+  { label: 'Sobre', href: '/about' },
+  { label: 'Contato', href: '/contact' },
 ];
 
 const Navbar: React.FC = () => {
@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
       <div className="md:hidden">
         <button
           onClick={() => setMenuOpen(!isMenuOpen)}
-          className="text-white"
+          className="text-white text-lg"
           aria-label="Toggle Menu"
         >
           {isMenuOpen ? '✖' : '☰'}
