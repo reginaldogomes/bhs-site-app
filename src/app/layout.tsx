@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   title: "BH Solutions - Soluções Tecnológicas Inovadoras",
   description: "A BH Solutions é especializada em soluções corporativas de infraestrutura, cloud computing, desenvolvimento de software e transformação digital. Impulsionamos a eficiência, segurança e escalabilidade das empresas com tecnologias personalizadas.",
   keywords: "BH Solutions, tecnologia da informação, soluções corporativas, cloud computing, transformação digital, desenvolvimento de software, infraestrutura empresarial, inovação tecnológica, escalabilidade, eficiência operacional",
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
 };
 

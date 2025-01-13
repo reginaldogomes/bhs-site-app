@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
             <li key={index}>
               <Link
                 href={item.href}
-                className="text-white hover:textSecondary font-bold"
+                className="text-white hover:textSecondary font-bold text-lg"
               >
                 {item.label}
               </Link>
