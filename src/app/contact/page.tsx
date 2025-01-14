@@ -3,6 +3,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import PageHeading from "@/components/PageHeading";
 
 const schema = yup.object().shape({
   name: yup.string().required("O nome é obrigatório."),
@@ -23,6 +24,12 @@ type FormData = {
 };
 
 const ContactPage: React.FC = () => {
+  const headingData = {
+    title: "Entre em Contato",
+    description:
+      "Preencha o formulário abaixo ou use as informações de contato para falar diretamente conosco. Estamos prontos para ajudar sua empresa a crescer com transformação digital.",
+  };
+
   const {
     register,
     handleSubmit,
@@ -38,20 +45,14 @@ const ContactPage: React.FC = () => {
       alert("Mensagem enviada com sucesso!");
       reset(); // Reseta os campos após o envio
     } catch (error) {
+      console.error("Erro ao enviar a mensagem:", error);
       alert("Erro ao enviar a mensagem.");
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-50">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">
-        Entre em Contato
-      </h1>
-      <p className="text-gray-600 mb-8 text-center max-w-2xl">
-        Preencha o formulário abaixo ou use as informações de contato para falar
-        diretamente conosco. Estamos prontos para ajudar sua empresa a crescer
-        com transformação digital.
-      </p>
+      <PageHeading {...headingData} />
 
       {/* Container principal responsivo */}
       <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -160,26 +161,20 @@ const ContactPage: React.FC = () => {
               </h3>
               <div className="flex space-x-4 mt-2">
                 <a
-                  href="https://facebook.com"
-                  target="_blank"
+                  href="#"
                   className="text-blue-600 hover:text-blue-800 transition"
-                  rel="noreferrer"
                 >
                   Facebook
                 </a>
                 <a
-                  href="https://instagram.com"
-                  target="_blank"
+                  href="#"
                   className="text-pink-600 hover:text-pink-800 transition"
-                  rel="noreferrer"
                 >
                   Instagram
                 </a>
                 <a
-                  href="https://linkedin.com"
-                  target="_blank"
+                  href="#"
                   className="text-blue-500 hover:text-blue-700 transition"
-                  rel="noreferrer"
                 >
                   LinkedIn
                 </a>
