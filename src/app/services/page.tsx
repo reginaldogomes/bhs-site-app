@@ -1,3 +1,9 @@
+import Services from "@/components/Services";
+
 export default function Page() {
-  return <h1>Hello Next.js!</h1>;
+  return (
+    <main>
+      <Services />
+    </main>
+  );
 }

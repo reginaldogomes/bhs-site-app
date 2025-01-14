@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { FaBars, FaTimes, FaLinkedin } from 'react-icons/fa';
+import React, { useState } from "react";
+import Link from "next/link";
+import { FaBars, FaTimes, FaLinkedin } from "react-icons/fa";
 
 const menuItems = [
-  { label: 'Serviços', href: '/services' },
-  { label: 'Sobre', href: '/about' },
-  { label: 'Contato', href: '/contact' },
+  { label: "Serviços", href: "/services" },
+  { label: "Sobre", href: "/about" },
+  { label: "Contato", href: "/contact" },
 ];
 
 const Navbar: React.FC = () => {
@@ -43,7 +43,9 @@ const Navbar: React.FC = () => {
         {/* Fullscreen Mobile Menu */}
         <div
           className={`fixed inset-0 bg-primary text-white flex flex-col items-center justify-center space-y-6 transform transition-all duration-700 ease-in-out ${
-            isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+            isMenuOpen
+              ? "translate-x-0 opacity-100"
+              : "translate-x-full opacity-0"
           }`}
         >
           {/* Close Button */}
