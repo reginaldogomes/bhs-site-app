@@ -41,14 +41,27 @@ const ContactPage: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      console.log(data); // Aqui você pode enviar os dados para sua API
-      alert("Mensagem enviada com sucesso!");
-      reset(); // Reseta os campos após o envio
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (response.ok) {
+        alert("Mensagem enviada com sucesso!");
+        reset(); // Reseta os campos do formulário
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || "Erro ao enviar a mensagem.");
+      }
     } catch (error) {
-      console.error("Erro ao enviar a mensagem:", error);
-      alert("Erro ao enviar a mensagem.");
+      console.error("Erro:", error);
+      alert("Ocorreu um erro ao enviar a mensagem.");
     }
   };
+  
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-50">
@@ -153,7 +166,7 @@ const ContactPage: React.FC = () => {
             </div>
             <div>
               <h3 className="text-sm font-medium text-gray-700">E-mail</h3>
-              <p className="text-gray-600">contato@bhsolutions.com</p>
+              <p className="text-gray-600"><a href="mailto:contato@bhsolutions.com.br">contato@bhsolutions.com.br</a></p>
             </div>
             <div>
               <h3 className="text-sm font-medium text-gray-700">
