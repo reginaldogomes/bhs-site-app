@@ -5,6 +5,33 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import PageHeading from "@/components/PageHeading";
 
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+
+const contactInfo = {
+  phone: "+55 (38) 37404012",
+  email: "contato@bhsolutions.com.br",
+  socialMedia: [
+    {
+      name: "Facebook",
+      icon: <FaFacebook />,
+      link: "https://facebook.com",
+      color: "text-blue-600 hover:text-blue-800",
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram />,
+      link: "https://instagram.com",
+      color: "text-pink-600 hover:text-pink-800",
+    },
+    {
+      name: "LinkedIn",
+      icon: <FaLinkedin />,
+      link: "https://linkedin.com",
+      color: "text-blue-500 hover:text-blue-700",
+    },
+  ],
+};
+
 const schema = yup.object().shape({
   name: yup.string().required("O nome é obrigatório."),
   email: yup
@@ -63,7 +90,6 @@ const ContactPage: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-50">
       <PageHeading {...headingData} />
 
-      {/* Container principal responsivo */}
       <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Formulário */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -143,59 +169,53 @@ const ContactPage: React.FC = () => {
           </button>
         </form>
 
-        {/* Informações de Contato */}
         <div className="space-y-6">
-          <div>
-            <h2 className="text-xl font-semibold text-gray-800">
-              Informações de Contato
-            </h2>
-            <p className="text-gray-600 mt-2">
-              Entre em contato pelos canais abaixo. Ficaremos felizes em atender
-              você!
-            </p>
-          </div>
+      <div>
+        <h2 className="text-xl font-semibold text-gray-800">
+          Informações de Contato
+        </h2>
+        <p className="text-gray-600 mt-2">
+          Entre em contato pelos canais abaixo. Ficaremos felizes em atender
+          você!
+        </p>
+      </div>
 
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-sm font-medium text-gray-700">Telefone</h3>
-              <p className="text-gray-600">+55 (38) 37404012</p>
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-gray-700">E-mail</h3>
-              <p className="text-gray-600">
-                <a href="mailto:contato@bhsolutions.com.br">
-                  contato@bhsolutions.com.br
-                </a>
-              </p>
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-gray-700">
-                Redes Sociais
-              </h3>
-              <div className="flex space-x-4 mt-2">
-                <a
-                  href="#"
-                  className="text-blue-600 hover:text-blue-800 transition"
-                >
-                  Facebook
-                </a>
-                <a
-                  href="#"
-                  className="text-pink-600 hover:text-pink-800 transition"
-                >
-                  Instagram
-                </a>
-                <a
-                  href="#"
-                  className="text-blue-500 hover:text-blue-700 transition"
-                >
-                  LinkedIn
-                </a>
-              </div>
-            </div>
+      <div className="space-y-4">
+        <div>
+          <h3 className="text-sm font-medium text-gray-700">Telefone</h3>
+          <p className="text-gray-600">{contactInfo.phone}</p>
+        </div>
+        <div>
+          <h3 className="text-sm font-medium text-gray-700">E-mail</h3>
+          <p className="text-gray-600">
+            <a
+              href={`mailto:${contactInfo.email}`}
+              className="text-blue-600 hover:text-blue-800 transition"
+            >
+              {contactInfo.email}
+            </a>
+          </p>
+        </div>
+        <div>
+          <h3 className="text-sm font-medium text-gray-700">Redes Sociais</h3>
+          <div className="flex space-x-4 mt-2">
+            {contactInfo.socialMedia.map((social, index) => (
+              <a
+                key={index}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${social.color} transition flex items-center space-x-2`}
+              >
+                {social.icon}
+                <span>{social.name}</span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
+    </div>
+    </div>
 
       {/* Google Maps Responsivo */}
       <div className="w-full max-w-5xl mt-12">
