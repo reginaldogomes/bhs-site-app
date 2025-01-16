@@ -1,13 +1,12 @@
 // src/components/LeadCaptureCTA.tsx
-'use client'
-import { useState } from 'react';
-import { FaWhatsapp } from 'react-icons/fa';
+"use client";
+import { useState } from "react";
 
 const LeadCaptureCTA: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    city: '',
+    name: "",
+    company: "",
+    city: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -24,7 +23,7 @@ const LeadCaptureCTA: React.FC = () => {
     // Enviar os dados para o backend ou serviço de e-mail aqui
     setIsSubmitted(true);
     // Resetar os dados do formulário após envio
-    setFormData({ name: '', company: '', city: '' });
+    setFormData({ name: "", company: "", city: "" });
   };
 
   return (
@@ -34,8 +33,9 @@ const LeadCaptureCTA: React.FC = () => {
           Consultoria Gratuita para Transformação Digital
         </h2>
         <p className="text-lg mb-8 text-white opacity-90">
-          Preencha o formulário abaixo para agendar sua consultoria gratuita e entender como podemos ajudar sua
-          empresa a crescer com transformação digital. Vamos juntos alcançar o próximo nível!
+          Preencha o formulário abaixo para agendar sua consultoria gratuita e
+          entender como podemos ajudar sua empresa a crescer com transformação
+          digital. Vamos juntos alcançar o próximo nível!
         </p>
 
         {/* Formulário de captura de leads */}
@@ -76,26 +76,15 @@ const LeadCaptureCTA: React.FC = () => {
             >
               Agendar Consultoria
             </button>
+            <p className="text-lg font-semibold">
+              Faça sua inscrição e aguarde nosso contato.
+            </p>
           </form>
         ) : (
           <div className="text-xl font-semibold text-teal-200">
             <p>Obrigado por se inscrever! Em breve entraremos em contato.</p>
           </div>
         )}
-
-        {/* WhatsApp CTA */}
-        <div className="mt-8">
-          <p className="text-lg font-semibold">Ou entre em contato diretamente pelo WhatsApp:</p>
-          <a
-            href="https://wa.me/5591999999999"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex justify-center items-center mt-6 bg-teal-500 text-white py-4 px-8 rounded-full shadow-lg hover:bg-teal-600 transition duration-300 ease-in-out transform hover:scale-105"
-          >
-            <FaWhatsapp className="mr-4 text-2xl" />
-            Fale conosco no WhatsApp
-          </a>
-        </div>
       </div>
     </section>
   );

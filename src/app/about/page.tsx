@@ -1,7 +1,6 @@
 // src/app/about/page.tsx
 
 import PageHeading from "@/components/PageHeading";
-import Image from "next/image";
 import { FaChartLine, FaLaptopCode, FaPeopleCarry } from "react-icons/fa";
 
 const About = () => {
@@ -15,19 +14,6 @@ const About = () => {
     <main className="min-h-screen bg-gray-50 p-6">
       <PageHeading {...headingData} />
 
-      <section className="max-w-5xl mx-auto flex flex-col items-center text-center space-y-6">
-        <div className="relative w-full md:w-2/3 lg:w-1/2 aspect-video overflow-hidden rounded-lg shadow-lg">
-          <Image
-            src="/about-image.jpg" // Adicione sua imagem na pasta public
-            alt="Equipe trabalhando na transformação digital"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg"
-          />
-        </div>
-      </section>
-
-      {/* Cards de Experiência */}
       <section className="mt-12 bg-white py-12 shadow-md rounded-lg">
         <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">
           Nossa Experiência

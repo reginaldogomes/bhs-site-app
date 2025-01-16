@@ -46,11 +46,11 @@ const ContactPage: React.FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         throw new Error("Falha ao enviar a mensagem.");
       }
-  
+
       alert("Mensagem enviada com sucesso!");
       reset(); // Reseta os campos após o envio
     } catch (error) {
@@ -58,7 +58,6 @@ const ContactPage: React.FC = () => {
       console.error(error);
     }
   };
-  
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-50">
