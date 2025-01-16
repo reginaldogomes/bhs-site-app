@@ -5,12 +5,12 @@ const Hero: React.FC = () => {
   const heroData = {
     backgroundImage:
       "url(https://alvaron.com.br/wp-content/uploads/2024/11/otimizacao-webp-paginas-internet-performance.jpg)",
-    title: "Impulsione Seu Negócio com Tecnologia de Alto Impacto",
+    title: "Transforme Seu Negócio com Tecnologia de Ponta",
     description:
-      "Soluções que Transformam Desafios em Resultados, Elevando Sua Empresa ao Próximo Nível.",
+      "Soluções Inovadoras para Impulsionar a Transformação Digital e Levar Sua Empresa ao Próximo Nível.",
     button: {
       text: "Saiba Mais",
-      link: "#about",
+      link: "/services",
     },
   };
 
@@ -27,17 +27,17 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 w-11/12 md:w-9/12">
         {/* Título responsivo */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
           {heroData.title}
         </h1>
         {/* Descrição responsiva */}
-        <p className="mt-4 text-lg sm:text-xl md:text-2xl">
+        <p className="mt-6 text-xl sm:text-2xl md:text-3xl leading-relaxed">
           {heroData.description}
         </p>
         {/* Botão */}
         <Link
           href={heroData.button.link}
-          className="mt-6 inline-block px-6 py-3 bg-secondary text-white rounded-lg shadow-md transition-colors duration-300 ease-in-out hover:bg-green-600"
+          className="mt-8 inline-block px-8 py-4 bg-secondary text-white rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:bg-green-600 hover:scale-110 hover:shadow-2xl"
         >
           {heroData.button.text}
         </Link>
