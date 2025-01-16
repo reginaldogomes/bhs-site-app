@@ -5,24 +5,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import PageHeading from "@/components/PageHeading";
 
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const contactInfo = {
-  phone: "+55 (38) 37404012",
+  phone: "+55 (38) 3740 4012",
   email: "contato@bhsolutions.com.br",
   socialMedia: [
-    /*{
-      name: "Facebook",
-      icon: <FaFacebook />,
-      link: "https://facebook.com",
-      color: "text-blue-600 hover:text-blue-800",
-    },
-    {
-      name: "Instagram",
-      icon: <FaInstagram />,
-      link: "https://instagram.com",
-      color: "text-pink-600 hover:text-pink-800",
-    },*/
     {
       name: "LinkedIn",
       icon: <FaLinkedin />,
@@ -182,8 +170,13 @@ const ContactPage: React.FC = () => {
 
       <div className="space-y-4">
         <div>
-          <h3 className="text-sm font-medium text-gray-700">Telefone</h3>
-          <p className="text-gray-600">{contactInfo.phone}</p>
+          <h3 className="text-sm font-medium text-gray-700">WhatsApp</h3>
+          <p className="text-gray-600"><a
+              href={`tel:${contactInfo.phone}`}
+              className="text-blue-600 hover:text-blue-800 transition"
+            >
+              {contactInfo.phone}
+            </a></p>
         </div>
         <div>
           <h3 className="text-sm font-medium text-gray-700">E-mail</h3>
