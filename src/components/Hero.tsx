@@ -1,10 +1,12 @@
 // src/components/Hero.tsx
 import Link from "next/link";
 
+import fotoBg from "../assets/foto-bg.jpg";
+
 const Hero: React.FC = () => {
   const heroData = {
     backgroundImage:
-      "url(https://alvaron.com.br/wp-content/uploads/2024/11/otimizacao-webp-paginas-internet-performance.jpg)",
+      "url(/transformacao-digital-bh-solutions.webp)",
     title: "Transforme Seu Negócio com Tecnologia de Ponta",
     description:
       "Soluções Inovadoras para Impulsionar a Transformação Digital e Levar Sua Empresa ao Próximo Nível.",
