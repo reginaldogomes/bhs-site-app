@@ -1,5 +1,5 @@
 // components/FloatingWhatsAppButton.tsx
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp } from "react-icons/fa";
 
 const FloatingWhatsAppButton: React.FC = () => {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;

@@ -11,7 +11,7 @@ const contactInfo = {
   phone: "+55 (38) 37404012",
   email: "contato@bhsolutions.com.br",
   socialMedia: [
-    {
+    /*{
       name: "Facebook",
       icon: <FaFacebook />,
       link: "https://facebook.com",
@@ -22,11 +22,11 @@ const contactInfo = {
       icon: <FaInstagram />,
       link: "https://instagram.com",
       color: "text-pink-600 hover:text-pink-800",
-    },
+    },*/
     {
       name: "LinkedIn",
       icon: <FaLinkedin />,
-      link: "https://linkedin.com",
+      link: "https://www.linkedin.com/company/bh-solutions-br",
       color: "text-blue-500 hover:text-blue-700",
     },
   ],
