@@ -2,10 +2,9 @@
 import Link from "next/link";
 
 const Hero: React.FC = () => {
-  // Objeto de dados
   const heroData = {
     backgroundImage:
-      "url(https://www.bhsolutions.com.br/wp-content/uploads/2024/11/2150169840-min.jpg)",
+      "url(https://alvaron.com.br/wp-content/uploads/2024/11/otimizacao-webp-paginas-internet-performance.jpg)",
     title: "Impulsione Seu Negócio com Tecnologia de Alto Impacto",
     description:
       "Soluções que Transformam Desafios em Resultados, Elevando Sua Empresa ao Próximo Nível.",
