@@ -1,8 +1,6 @@
 // src/components/Hero.tsx
 import Link from "next/link";
 
-import fotoBg from "../assets/foto-bg.jpg";
-
 const Hero: React.FC = () => {
   const heroData = {
     backgroundImage:
