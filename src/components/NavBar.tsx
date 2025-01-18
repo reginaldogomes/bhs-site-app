@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
           {/* LinkedIn Icon */}
           <div className="mt-6">
             <a
-              href="https://www.linkedin.com/in/seu-perfil/"
+              href="https://www.linkedin.com/company/bh-solutions-br"
               target="_blank"
               rel="noopener noreferrer"
               className="text-3xl hover:text-secondary transition duration-300"
