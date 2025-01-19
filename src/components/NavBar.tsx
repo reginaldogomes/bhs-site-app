@@ -7,6 +7,7 @@ const menuItems = [
   { label: "Serviços", href: "/services" },
   { label: "Sobre", href: "/about" },
   { label: "Contato", href: "/contact" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const Navbar: React.FC = () => {
