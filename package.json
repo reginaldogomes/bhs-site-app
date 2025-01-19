@@ -11,6 +11,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.731.1",
     "@hookform/resolvers": "^3.10.0",
     "@prisma/client": "^6.2.1",
     "@sendgrid/mail": "^8.1.4",

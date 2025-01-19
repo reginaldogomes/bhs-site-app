@@ -9,9 +9,9 @@ const NotFoundPage: React.FC = () => {
       <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6">
         Desculpe, não conseguimos encontrar a página que você procura.
       </p>
-        <a className="inline-block px-6 py-3 bg-white text-indigo-600 font-semibold rounded-md shadow-md hover:shadow-lg hover:bg-gray-100 transition-all duration-300">
-          Voltar para a página inicial
-        </a>
+      <a className="inline-block px-6 py-3 bg-white text-indigo-600 font-semibold rounded-md shadow-md hover:shadow-lg hover:bg-gray-100 transition-all duration-300">
+        Voltar para a página inicial
+      </a>
     </div>
   );
 };
