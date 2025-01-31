@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BHS Site App
 
-## Getting Started
+## 📌 Visão Geral
 
-First, run the development server:
+O **BHS Site App** é um projeto desenvolvido para [descrever o propósito principal da aplicação, por exemplo, "facilitar a gestão de conteúdo do site da BHS"].
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Este projeto tem como objetivo [detalhar os objetivos específicos, como "otimizar a experiência do usuário e simplificar a administração de conteúdo"].
+
+## ✨ Funcionalidades Principais
+
+- **Gestão de Conteúdo**: Permite [descrever a funcionalidade, como "criar, editar e excluir conteúdos de forma eficiente"].
+- **Integração com [Sistemas/Serviços]**: Integra-se com [listar sistemas ou serviços relevantes, como "sistemas de CRM ou plataformas de marketing"].
+- **Relatórios e Análises**: Gera relatórios detalhados sobre [especificar métricas ou dados, como "desempenho do site e engajamento do usuário"].
+
+## 🛠️ Tecnologias Utilizadas
+
+O projeto utiliza as seguintes tecnologias:
+
+- **Frontend**: [Listar frameworks ou bibliotecas, como "React, Next.js, Tailwind CSS"].
+- **Backend**: [Listar linguagens ou frameworks, como "Node.js, NestJS"].
+- **Banco de Dados**: [Especificar o banco de dados, como "PostgreSQL, Prisma"].
+- **Hospedagem**: [Informar a plataforma de hospedagem, como "AWS, Vercel"].
+
+## 📁 Estrutura do Projeto
+
+A estrutura do projeto está organizada da seguinte forma:
+
+```
+├── src/                # Código-fonte da aplicação
+│   ├── components/     # Componentes reutilizáveis
+│   ├── pages/          # Páginas principais da aplicação
+│   ├── services/       # Serviços de API e integração
+│   ├── utils/          # Funções auxiliares
+├── public/             # Arquivos públicos e estáticos
+├── config/             # Configurações da aplicação
+├── tests/              # Testes automatizados
+└── README.md           # Documentação do projeto
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Como Rodar o Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1️⃣ Pré-requisitos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Antes de iniciar, certifique-se de ter as seguintes ferramentas instaladas:
 
-## Learn More
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/) ou npm
+- Banco de Dados configurado (caso necessário)
 
-To learn more about Next.js, take a look at the following resources:
+### 2️⃣ Instalação e Execução
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Clone este repositório
+$ git clone https://github.com/reginaldogomes/bhs-site-app.git
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Acesse a pasta do projeto
+$ cd bhs-site-app
 
-## Deploy on Vercel
+# Instale as dependências
+$ yarn install  # ou npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Configure as variáveis de ambiente
+$ cp .env.example .env
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Inicie a aplicação
+$ yarn dev  # ou npm run dev
+```
+
+A aplicação estará disponível em `http://localhost:3000`.
+
+## 🔗 Como Acessar
+
+A aplicação está disponível em: **[URL da aplicação]**
+
+Para acesso administrativo, utilize as credenciais fornecidas pela equipe de TI.
+
+## 👥 Contato
+
+Para mais informações ou suporte, entre em contato com:
+
+- **Desenvolvedor Líder**: Reginaldo Gomes - [contato@reginaldogomes.dev.br]
+- **Equipe de Suporte**: [Informações de contato]
+
+---
+
+Este README foi elaborado para fornecer uma visão clara e concisa do projeto **BHS Site App**, facilitando o entendimento por parte de gestores e partes interessadas.
