@@ -1,4 +1,4 @@
-import { prisma } from "../../../lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 export default async function BlogPost({ params }: { params: { id: string } }) {
   const postId = parseInt(params.id, 10); // Converte o ID para número
