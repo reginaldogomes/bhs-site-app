@@ -3,7 +3,7 @@ import BlogList from "@/components/BlogList";
 
 export default async function BlogPage() {
   const posts = await prisma.post.findMany({
-    //where: { published: true },
+    where: { published: true },
     orderBy: { createdAt: "desc" },
   });
 

@@ -5,6 +5,7 @@ type BlogListProps = {
     id: string;
     title: string;
     content: string;
+    published: boolean;
     createdAt: string;
   }[];
 };
@@ -17,7 +18,8 @@ export default function BlogList({ posts }: BlogListProps) {
           key={post.id}
           id={post.id}
           title={post.title}
-          excerpt={`${post.content.slice(0, 100)}...`}
+          content={`${post.content.slice(0, 100)}...`}
+          published={post.published}
           createdAt={post.createdAt}
         />
       ))}
