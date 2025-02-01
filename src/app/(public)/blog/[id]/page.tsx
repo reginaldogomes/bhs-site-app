@@ -2,6 +2,7 @@ import { getPostById } from "@/modules/blog/services/blogService";
 import { notFound } from "next/navigation";
 import BlogContent from "@/modules/blog/components/BlogContent";
 import { Metadata } from "next";
+import Main from "@/components/Main";
 
 interface BlogPostProps {
   params: { id: string };
@@ -45,7 +46,12 @@ const BlogPost = async ({ params }: BlogPostProps) => {
     const post = await getPostById(params.id);
     if (!post) return notFound();
 
-    return <BlogContent post={post} />;
+    return(  
+      <Main>
+        <BlogContent post={post} />
+      </Main>
+    ) 
+    
   } catch (error) {
     return notFound();
   }
