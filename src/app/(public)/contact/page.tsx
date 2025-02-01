@@ -3,6 +3,7 @@ import PageHeading from "@/components/PageHeading";
 
 import { FaLinkedin } from "react-icons/fa";
 import ContactForm from "@/components/ContactForm";
+import Main from "@/components/Main";
 
 const contactInfo = {
   phone: "+55 (38) 3740 4012",
@@ -25,10 +26,10 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-50">
+    <Main>
       <PageHeading {...headingData} />
 
-      <div className="w-full max-w-5xl bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="container mx-auto bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Formulário */}
 
         <ContactForm />
@@ -90,7 +91,7 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </main>
+    </Main>
   );
 };
 

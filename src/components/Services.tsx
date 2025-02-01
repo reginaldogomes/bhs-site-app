@@ -67,12 +67,8 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-gray-50 text-center">
-      <h2 className="text-4xl font-bold text-gray-800">Nossos Serviços</h2>
-      <p className="mt-4 text-xl text-gray-600">
-        Soluções inovadoras para transformar o seu negócio.
-      </p>
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12 px-4">
+    <section id="services" className="bg-gray-50 text-center">
+      <div className="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12 px-4">
         {services.map((service, index) => (
           <div
             key={index}

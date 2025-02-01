@@ -1,5 +1,6 @@
 // src/app/about/page.tsx
 
+import Main from "@/components/Main";
 import PageHeading from "@/components/PageHeading";
 import { FaChartLine, FaLaptopCode, FaPeopleCarry } from "react-icons/fa";
 
@@ -11,7 +12,7 @@ const About = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-6">
+    <Main>
       <PageHeading {...headingData} />
 
       <section className="mt-12 bg-white py-12 shadow-md rounded-lg">
@@ -60,7 +61,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </main>
+    </Main>
   );
 };
 

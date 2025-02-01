@@ -8,7 +8,7 @@ const Page: React.FC = () => {
   return (
     <Main>
       <Hero />
-      <div className="container mx-auto py-6"> 
+      <div className="container mx-auto py-6">
         <Services />
         <LeadCaptureCTA />
       </div>

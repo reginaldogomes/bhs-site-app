@@ -9,7 +9,7 @@ export default function BlogCard({
   id,
   title,
   content,
-  createdAt
+  createdAt,
 }: BlogCardProps) {
   return (
     <a
