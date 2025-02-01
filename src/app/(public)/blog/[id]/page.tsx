@@ -1,18 +1,54 @@
-import api from '@/lib/axios';
+import { getPostById } from "@/modules/blog/services/blogService";
+import { notFound } from "next/navigation";
+import BlogContent from "@/modules/blog/components/BlogContent";
+import { Metadata } from "next";
 
-interface PostPageProps {
+interface BlogPostProps {
   params: { id: string };
 }
 
-export default async function PostPage({ params }: PostPageProps) {
-  const { id } = params;
-  const { data: post } = await api.get(`/posts/${id}`);
+// 🔥 Otimizando SEO com metadata dinâmica
+export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
+  try {
+    const post = await getPostById(params.id);
 
-  return (
-    <div className="max-w-2xl mx-auto p-4">
-      <h1 className="text-3xl font-bold">{post.title}</h1>
-      <p className="text-gray-600">{post.content}</p>
-      <p className="text-sm text-gray-400">Publicado em: {new Date(post.createdAt).toLocaleDateString()}</p>
-    </div>
-  );
+    if (!post) throw new Error("Post não encontrado");
+
+    return {
+      title: post.title,
+      description: post.content.slice(0, 150) + "...",
+      openGraph: {
+        title: post.title,
+        description: post.content.slice(0, 150) + "...",
+        url: `/blog/${params.id}`,
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.content.slice(0, 150) + "...",
+      },
+    };
+  } catch {
+    return {
+      title: "Post não encontrado",
+      description: "O post que você está procurando não foi encontrado.",
+    };
+  }
 }
+
+// 🔥 Página do post (server-side)
+const BlogPost = async ({ params }: BlogPostProps) => {
+  if (!params.id) return notFound();
+
+  try {
+    const post = await getPostById(params.id);
+    if (!post) return notFound();
+
+    return <BlogContent post={post} />;
+  } catch (error) {
+    return notFound();
+  }
+};
+
+export default BlogPost;

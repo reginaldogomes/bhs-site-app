@@ -5,8 +5,7 @@ import Services from "@/components/Services";
 export default function Page() {
   const headingData = {
     title: "Serviços",
-    description:
-      "Soluções inovadoras para transformar o seu negócio.",
+    description: "Soluções inovadoras para transformar o seu negócio.",
   };
   return (
     <Main>
