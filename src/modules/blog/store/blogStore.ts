@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { getAllPosts } from "../services/blogService";
+import { fetchPosts, createPost } from "../services/blogService";
 import { Post } from "../types/blogTypes";
 
 interface BlogState {
@@ -7,9 +7,9 @@ interface BlogState {
   loading: boolean;
   error: string | null;
   fetchPosts: () => Promise<void>;
+  addPost: (title: string, content: string) => Promise<void>;
 }
 
-// Criando o Zustand store para o blog
 export const useBlogStore = create<BlogState>((set) => ({
   posts: [],
   loading: false,
@@ -19,10 +19,19 @@ export const useBlogStore = create<BlogState>((set) => ({
     set({ loading: true, error: null });
 
     try {
-      const data = await getAllPosts();
+      const data = await fetchPosts();
       set({ posts: data, loading: false });
     } catch (err) {
       set({ error: "Erro ao carregar os posts", loading: false });
+    }
+  },
+
+  addPost: async (title, content) => {
+    try {
+      const newPost = await createPost(title, content);
+      set((state) => ({ posts: [newPost, ...state.posts] }));
+    } catch (err) {
+      console.error("Erro ao criar post:", err);
     }
   },
 }));

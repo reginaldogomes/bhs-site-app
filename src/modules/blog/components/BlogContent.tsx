@@ -1,12 +1,17 @@
-import { Post } from "@/modules/blog/types/blogTypes";
+"use client"; // ✅ Agora `useEffect` pode ser usado
 
-const BlogContent = ({ post }: { post: Post }) => {
-  return (
-    <article className="container mx-auto p-6 max-w-2xl">
-      <h1 className="text-4xl font-bold text-gray-900">{post.title}</h1>
-      <p className="text-gray-600 mt-4">{post.content || "Conteúdo indisponível."}</p>
-    </article>
-  );
+import { useEffect } from "react";
+import { PostList } from "@/modules/blog/components/PostList";
+import { useBlogStore } from "@/modules/blog/store/blogStore";
+
+const BlogContent = () => {
+  const { fetchPosts } = useBlogStore();
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  return <PostList />;
 };
 
 export default BlogContent;

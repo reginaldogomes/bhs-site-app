@@ -1,18 +1,11 @@
-import Main from "@/components/Main";
-import PageHeading from "@/components/PageHeading";
-import BlogList from "@/modules/blog/components/BlogList";
+import BlogContent from "@/modules/blog/components/BlogContent";
 
 const BlogPage = () => {
-  const headingData = {
-    title: "Sobre Nós",
-    description:
-      "Somos especialistas em transformação digital, ajudando empresas a evoluírem e alcançarem novos patamares com tecnologia de ponta. Nosso foco está em oferecer soluções personalizadas que atendem às necessidades específicas de cada cliente.",
-  };
   return (
-    <Main>
-      <PageHeading {...headingData} />
-      <BlogList />
-    </Main>
+    <div className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-4">Blog</h1>
+      <BlogContent />
+    </div>
   );
 };
 

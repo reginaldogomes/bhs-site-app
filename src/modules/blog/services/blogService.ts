@@ -1,12 +1,14 @@
-import axios from "@/services/api";
-import { Post } from "../types/blogTypes";
+import api from "@/lib/api/axios";
+import { Post } from "../types/post";
 
-export const getAllPosts = async (): Promise<Post[]> => {
-  const response = await axios.get("/blog");
+export const fetchPosts = async (): Promise<Post[]> => {
+  const response = await api.get("/posts");
   return response.data;
 };
 
-export const getPostById = async (id: string): Promise<Post> => {
-  const response = await axios.get(`/blog/${id}`);
+export const createPost = async (
+  post: Omit<Post, "id" | "createdAt" | "updatedAt">,
+): Promise<Post> => {
+  const response = await api.post("/blog/posts", post);
   return response.data;
 };
