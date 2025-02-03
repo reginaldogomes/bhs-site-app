@@ -8,7 +8,7 @@ interface BlogStore {
 }
 
 export const useBlogStore = create<BlogStore>((set) => ({
-  posts: [], // Estado inicial: array vazio
+  posts: [],
   setPosts: (posts) => set({ posts }),
   addPost: (post) => set((state) => ({ posts: [post, ...state.posts] })),
 }));
