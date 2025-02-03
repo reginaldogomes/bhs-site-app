@@ -8,6 +8,8 @@ const PostDetail = ({ id }: { id: number }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    console.log('ID do post:', id); // Verifique o valor do ID
+
     const fetchPost = async () => {
       try {
         const response = await fetch(`/api/blog/posts/${id}`);
@@ -44,10 +46,10 @@ const PostDetail = ({ id }: { id: number }) => {
   }
 
   return (
-    <div>
+    <section>
       <h1>{post.title}</h1>
       <p>{post.content}</p>
-    </div>
+    </section>
   );
 };
 
