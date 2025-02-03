@@ -1,6 +1,6 @@
-import { PostForm } from '../components/PostForm';
-import { useBlogStore } from '../hooks/useBlogStore';
-import { createPost } from '../services/blogService';
+import { PostForm } from "../components/PostForm";
+import { useBlogStore } from "../hooks/useBlogStore";
+import { createPost } from "../services/blogService";
 
 export const NewPostPage = () => {
   const { addPost } = useBlogStore();

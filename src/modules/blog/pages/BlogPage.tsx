@@ -1,7 +1,7 @@
-import { PostList } from '../components/PostList';
-import { useBlogStore } from '../hooks/useBlogStore';
-import { useEffect } from 'react';
-import { fetchPosts } from '../services/blogService';
+import { PostList } from "../components/PostList";
+import { useBlogStore } from "../hooks/useBlogStore";
+import { useEffect } from "react";
+import { fetchPosts } from "../services/blogService";
 
 export const BlogPage = () => {
   const { posts, setPosts } = useBlogStore();
@@ -12,7 +12,7 @@ export const BlogPage = () => {
         const data = await fetchPosts();
         setPosts(data);
       } catch (error) {
-        console.error('Failed to load posts:', error);
+        console.error("Failed to load posts:", error);
       }
     };
 

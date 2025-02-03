@@ -1,25 +1,15 @@
-import { getPostById } from "@/modules/blog/services/blogService";
-import { notFound } from "next/navigation";
-import BlogContent from "@/modules/blog/components/BlogContent";
+import Main from "@/components/Main";
+import PostDetail from "@/modules/blog/components/PostDetails";
 
-interface BlogPostProps {
-  params?: { id?: string };
-}
-
-// ✅ Correção: Agora `params` é tratado corretamente
-const BlogPost = async ({ params }: BlogPostProps) => {
-  if (!params?.id) return notFound();
-
-  try {
-    const post = await getPostById(params.id);
-    if (!post) return notFound();
-
-    return <BlogContent post={post} />;
-  } catch (error) {
-    console.error("Erro ao carregar o post:", error);
-    return notFound();
+export default function BlogPostPage({ params }: { params: { id: string } }) {
+  // Verifica se o ID foi fornecido
+  if (!params?.id) {
+    return <p>ID inválido</p>;
   }
-};
 
-export default BlogPost;
-
+  return (
+    <Main>
+      <PostDetail id={Number(params.id)} />
+    </Main>
+  );
+}

@@ -1,20 +1,28 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 
-// ✅ Correção: Agora `params` é tratado corretamente
+/**
+ * Busca um post pelo ID.
+ * @param request A requisição HTTP.
+ * @param params Os parâmetros da rota, incluindo o ID do post.
+ * @returns Uma resposta JSON com o post ou uma mensagem de erro.
+ */
 export async function GET(
-  req: Request,
-  { params }: { params: { id?: string } },
+  request: Request,
+  { params }: { params: { id: string } },
 ) {
+  // Verifica se o ID foi fornecido
   if (!params?.id) {
     return NextResponse.json({ error: "ID inválido" }, { status: 400 });
   }
 
   try {
+    // Busca o post pelo ID
     const post = await prisma.post.findUnique({
       where: { id: Number(params.id) },
     });
 
+    // Se o post não for encontrado, retorna um erro 404
     if (!post) {
       return NextResponse.json(
         { error: "Post não encontrado" },
@@ -22,11 +30,12 @@ export async function GET(
       );
     }
 
+    // Retorna o post encontrado
     return NextResponse.json(post);
   } catch (error) {
-    console.error("Erro ao buscar o post:", error);
+    console.error("Erro ao buscar post:", error);
     return NextResponse.json(
-      { error: "Erro interno no servidor" },
+      { error: "Erro interno do servidor" },
       { status: 500 },
     );
   }

@@ -1,7 +1,7 @@
-import { PostDetails } from '../components/PostDetails';
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { getPostById } from '../services/blogService';
+import { PostDetails } from "../components/PostDetails";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { getPostById } from "../services/blogService";
 
 export const PostDetailsPage = () => {
   const { id } = useParams();
@@ -13,7 +13,7 @@ export const PostDetailsPage = () => {
         const data = await getPostById(Number(id));
         setPost(data);
       } catch (error) {
-        console.error('Failed to load post:', error);
+        console.error("Failed to load post:", error);
       }
     };
 
