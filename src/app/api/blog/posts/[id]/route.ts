@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
+import { NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
 
 export async function GET(
   request: Request,
@@ -7,7 +7,7 @@ export async function GET(
 ) {
   // Verifica se o ID foi fornecido
   if (!params?.id) {
-    return NextResponse.json({ error: 'ID inválido' }, { status: 400 });
+    return NextResponse.json({ error: "ID inválido" }, { status: 400 });
   }
 
   try {
@@ -18,15 +18,18 @@ export async function GET(
 
     // Se o post não for encontrado, retorna um erro 404
     if (!post) {
-      return NextResponse.json({ error: 'Post não encontrado' }, { status: 404 });
+      return NextResponse.json(
+        { error: "Post não encontrado" },
+        { status: 404 },
+      );
     }
 
     // Retorna o post encontrado
     return NextResponse.json(post);
   } catch (error) {
-    console.error('Erro ao buscar post:', error);
+    console.error("Erro ao buscar post:", error);
     return NextResponse.json(
-      { error: 'Erro interno do servidor' },
+      { error: "Erro interno do servidor" },
       { status: 500 },
     );
   }

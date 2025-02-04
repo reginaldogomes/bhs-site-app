@@ -1,25 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import api from "@/lib/api/axios"; // Importando a instância do axios
 
 const PostDetail = ({ id }: { id: number }) => {
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState<Post | null>(null); // Tipagem explícita
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log('ID do post:', id); // Verifique o valor do ID
+    console.log("ID do post:", id); // Verifique o valor do ID
 
     const fetchPost = async () => {
       try {
-        const response = await fetch(`/api/blog/posts/${id}`);
-        if (!response.ok) {
-          throw new Error("Erro ao buscar post");
-        }
-        const data = await response.json();
-        setPost(data);
+        // Faz a requisição usando axios
+        const response = await api.get(`/blog/posts/${id}`);
+        setPost(response.data); // Define os dados do post
       } catch (error) {
-        setError(error.message);
+        // Tratamento de erros
+        setError(error.response?.data?.error || "Erro ao buscar post");
       } finally {
         setLoading(false);
       }
