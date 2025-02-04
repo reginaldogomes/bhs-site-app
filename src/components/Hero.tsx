@@ -4,9 +4,9 @@ import Link from "next/link";
 const Hero: React.FC = () => {
   const heroData = {
     backgroundImage: "url(/transformacao-digital-bh-solutions.webp)",
-    title: "Transforme Seu Negócio com Tecnologia de Ponta",
+    title: "Transformação Digital com Inovação e Tecnologia",
     description:
-      "Soluções Inovadoras para Impulsionar a Transformação Digital e Levar Sua Empresa ao Próximo Nível.",
+      "Soluções em Nuvem, Infraestrutura, Redes e Desenvolvimento de Software com tecnologias Microsoft, AWS e Google Cloud",
     button: {
       text: "Saiba Mais",
       link: "/services",

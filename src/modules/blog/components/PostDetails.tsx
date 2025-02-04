@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import api from "@/lib/api/axios"; // Importando a instância do axios
+import { Post } from "../types/post";
 
 const PostDetail = ({ id }: { id: number }) => {
   const [post, setPost] = useState<Post | null>(null); // Tipagem explícita
@@ -27,7 +28,7 @@ const PostDetail = ({ id }: { id: number }) => {
     if (id) {
       fetchPost();
     } else {
-      setError("ID inválido");
+      setError("ID invalid");
       setLoading(false);
     }
   }, [id]);

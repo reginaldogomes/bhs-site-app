@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { TagsCloud, CategoriesList } from "@/modules/blog/components/Sidebar";
+import TagsCloud from "@/modules/blog/components/TagsCloud";
+import CategoriesList from "@/modules/blog/components/CategoriesList";
 
 interface BlogLayoutProps {
   children: React.ReactNode;
@@ -34,11 +35,11 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
           </Button>
         </div>
 
-        {/* Categorias 
-        <CategoriesList />*/}
+        {/* Categorias */}
+        <CategoriesList />
 
-        {/* Nuvem de Tags 
-        <TagsCloud />*/}
+        {/* Nuvem de Tags */}
+        <TagsCloud />
       </aside>
 
       {/* Conteúdo Principal */}
