@@ -9,7 +9,7 @@ const BlogContent = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [fetchPosts]);
 
   return <PostList />;
 };
