@@ -3,7 +3,7 @@ version: "3.3" # Versão compatível com Docker Compose 1.25.0+
 services:
   postgres:
     image: postgres:latest
-    container_name: meu-blog-postgres
+    container_name: bhs-site-app-bd
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -13,11 +13,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - meu-blog-network
+      - bhs-site-app-network
 
 volumes:
   postgres_data:
 
 networks:
-  meu-blog-network:
+  bhs-site-app-network:
     driver: bridge

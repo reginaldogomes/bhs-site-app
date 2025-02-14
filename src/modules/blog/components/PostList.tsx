@@ -38,7 +38,7 @@ export const PostList: React.FC<PostListProps> = ({
     if (!initialPosts.length) {
       loadPosts();
     }
-  }, []); // ✅ Dependências vazias: executa apenas uma vez
+  }, [initialPosts.length]); // ✅ Dependências vazias: executa apenas uma vez
 
   // Exibe um loader enquanto os posts estão sendo carregados
   if (loading) {

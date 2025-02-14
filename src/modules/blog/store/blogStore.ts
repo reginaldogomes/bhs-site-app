@@ -21,8 +21,13 @@ export const useBlogStore = create<BlogState>((set) => ({
     try {
       const data = await fetchPosts();
       set({ posts: data, loading: false });
-    } catch (err) {
-      set({ error: "Erro ao carregar os posts", loading: false });
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Erro desconhecido ao carregar os posts";
+      set({ error: errorMessage, loading: false });
+      console.error("Erro ao carregar os posts:", err);
     }
   },
 
@@ -30,8 +35,10 @@ export const useBlogStore = create<BlogState>((set) => ({
     try {
       const newPost = await createPost(title, content);
       set((state) => ({ posts: [newPost, ...state.posts] }));
-    } catch (err) {
-      console.error("Erro ao criar post:", err);
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Erro desconhecido ao criar post";
+      console.error("Erro ao criar post:", errorMessage);
     }
   },
 }));

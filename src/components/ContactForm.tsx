@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,18 +11,25 @@ type FormData = {
   message: string;
 };
 
+type Status = {
+  type: "success" | "error";
+  message: string;
+} | null;
+
+const schema = yup.object().shape({
+  name: yup.string().required("O nome é obrigatório."),
+  email: yup
+    .string()
+    .email("Digite um e-mail válido.")
+    .required("O e-mail é obrigatório."),
+  message: yup
+    .string()
+    .min(10, "A mensagem deve ter no mínimo 10 caracteres.")
+    .required("A mensagem é obrigatória."),
+});
+
 const ContactForm: React.FC = () => {
-  const schema = yup.object().shape({
-    name: yup.string().required("O nome é obrigatório."),
-    email: yup
-      .string()
-      .email("Digite um e-mail válido.")
-      .required("O e-mail é obrigatório."),
-    message: yup
-      .string()
-      .min(10, "A mensagem deve ter no mínimo 10 caracteres.")
-      .required("A mensagem é obrigatória."),
-  });
+  const [status, setStatus] = useState<Status>(null);
 
   const {
     register,
@@ -32,26 +41,28 @@ const ContactForm: React.FC = () => {
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
+    setStatus(null);
+
     try {
       const response = await fetch("/api/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          to: "emaildestino@exemplo.com", // Substitua pelo e-mail de destino
-          subject: `Contato de ${data.name}`, // Assunto do e-mail
-          message: `Nome: ${data.name}\nE-mail: ${data.email}\nMensagem: ${data.message}`, // Corpo do e-mail
-        }),
+        body: JSON.stringify(data),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error("Falha ao enviar a mensagem.");
+        throw new Error(result.error || "Erro ao enviar a mensagem.");
       }
 
-      alert("Mensagem enviada com sucesso!");
-      reset(); // Reseta os campos após o envio
-    } catch (error) {
-      alert("Erro ao enviar a mensagem.");
-      console.error(error);
+      setStatus({ type: "success", message: "E-mail enviado com sucesso!" });
+      reset();
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Erro inesperado.";
+      setStatus({ type: "error", message: errorMessage });
+      console.error("Erro ao enviar o formulário:", error);
     }
   };
 
@@ -122,11 +133,21 @@ const ContactForm: React.FC = () => {
 
       <button
         type="submit"
-        className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark transition"
+        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
       </button>
+
+      {status && (
+        <p
+          className={`text-sm mt-2 ${
+            status.type === "success" ? "text-green-500" : "text-red-500"
+          }`}
+        >
+          {status.message}
+        </p>
+      )}
     </form>
   );
 };
