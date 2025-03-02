@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
       style={{ backgroundImage: heroData.backgroundImage }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-pattern bg-primary opacity-75"></div>
+      <div className="absolute inset-0 bg-pattern bg-bhs-100 opacity-75"></div>
 
       {/* Pattern */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent opacity-25 bg-pattern"></div>

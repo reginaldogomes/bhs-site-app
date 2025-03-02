@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     POSTGRES_DB: process.env.POSTGRES_DB,
     POSTGRES_HOST: process.env.POSTGRES_HOST,
     POSTGRES_PORT: process.env.POSTGRES_PORT,
+    DATABASE_URL: process.env.DATABASE_URL,
   },
 };
 
