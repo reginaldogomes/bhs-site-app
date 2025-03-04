@@ -5,6 +5,8 @@ import { FaLinkedin } from "react-icons/fa";
 import ContactForm from "@/components/ContactForm";
 import Main from "@/components/Main";
 
+import { WHATSAPP_NUMBER, EMAIL_CONTACT, LINKEDIN_LINK } from "@/constants";
+
 const contactInfo = {
   phone: "+55 (38) 3740 4012",
   email: "contato@bhsolutions.com.br",
@@ -54,7 +56,7 @@ const ContactPage: React.FC = () => {
                   href={`tel:${contactInfo.phone}`}
                   className="text-blue-600 hover:text-blue-800 transition"
                 >
-                  {contactInfo.phone}
+                  {WHATSAPP_NUMBER}
                 </a>
               </p>
             </div>
@@ -65,7 +67,7 @@ const ContactPage: React.FC = () => {
                   href={`mailto:${contactInfo.email}`}
                   className="text-blue-600 hover:text-blue-800 transition"
                 >
-                  {contactInfo.email}
+                  {EMAIL_CONTACT}
                 </a>
               </p>
             </div>
@@ -77,7 +79,7 @@ const ContactPage: React.FC = () => {
                 {contactInfo.socialMedia.map((social, index) => (
                   <a
                     key={index}
-                    href={social.link}
+                    href={LINKEDIN_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${social.color} transition flex items-center space-x-2`}
