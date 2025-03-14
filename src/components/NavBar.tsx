@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
 
         {/* Fullscreen Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-primary text-white flex flex-col items-center justify-center space-y-6 transform transition-all duration-700 ease-in-out ${
+          className={`fixed inset-0 bg-bhs-100 text-white flex flex-col items-center justify-center space-y-6 transform transition-all duration-700 ease-in-out ${
             isMenuOpen
               ? "translate-x-0 opacity-100"
               : "translate-x-full opacity-0"
