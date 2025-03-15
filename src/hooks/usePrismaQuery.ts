@@ -22,7 +22,7 @@ type UsePrismaQueryResult<T> = {
 function usePrismaQuery<T>(
   model: PrismaModel,
   method: string,
-  options?: QueryOptions
+  options?: QueryOptions,
 ): UsePrismaQueryResult<T> {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);

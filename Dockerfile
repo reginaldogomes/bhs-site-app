@@ -13,8 +13,8 @@ RUN npm install
 # Etapa 5: Copiar todos os outros arquivos para o contêiner
 COPY . .
 
-# Etapa 6: Instalar o Prisma CLI
-RUN npm install prisma --save-dev
+# Etapa 6: Instalar o Prisma CLI globalmente (opcional, mas recomendado)
+RUN npm install -g prisma
 
-# Etapa 7: Rodar as migrations (será feito ao iniciar o contêiner)
-CMD ["npx", "prisma", "migrate", "deploy"]
+# Etapa 7: Rodar as migrações e iniciar o servidor
+CMD ["sh", "-c", "npx prisma migrate deploy && npm run dev"]
