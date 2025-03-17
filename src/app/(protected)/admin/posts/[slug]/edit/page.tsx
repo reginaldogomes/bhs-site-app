@@ -1,5 +1,5 @@
 // app/(blog)/posts/[slug]/edit/page.tsx
-import PostForm from "@blog/components/PostForm";
+import { PostForm } from "@blog/components/PostForm";
 import { getPostBySlug, updatePost } from "@blog/actions/postActions";
 
 export default async function EditPostPage({
