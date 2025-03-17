@@ -1,23 +1,29 @@
-// app/(blog)/posts/[slug]/edit/page.tsx
-import { PostForm } from "@blog/components/PostForm";
-import { getPostBySlug, updatePost } from "@blog/actions/postActions";
+// filepath: /src/app/(protected)/admin/posts/[slug]/edit/page.tsx
+import React from "react";
+import PostForm from "@/modules/blog/components/PostForm";
 
-export default async function EditPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const post = await getPostBySlug(params.slug);
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
 
-  if (!post) return <div>Post not found</div>;
+const EditPostPage: React.FC<PageProps> = ({ params }) => {
+  const { slug } = params;
+
+  const handleSubmit = async (title: string, content: string) => {
+    // Lógica para enviar os dados do formulário
+  };
 
   return (
     <div>
       <h1>Edit Post</h1>
       <PostForm
-        initialData={{ title: post.title, content: post.content }}
-        onSubmit={(title, content) => updatePost(post.slug, title, content)}
+        initialData={{ title: "", content: "" }}
+        onSubmit={handleSubmit}
       />
     </div>
   );
-}
+};
+
+export default EditPostPage;
