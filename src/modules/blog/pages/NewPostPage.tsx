@@ -1,4 +1,4 @@
-import { PostForm } from "../components/PostForm";
+import PostForm from "../components/PostForm";
 import { useBlogStore } from "../hooks/useBlogStore";
 import { createPost } from "../services/blogService";
 
