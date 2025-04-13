@@ -6,7 +6,10 @@ interface EditPostPageProps {
   params: {
     slug: string;
   };
-  // Add other props if needed (searchParams, etc.)
+  // searchParams opcional, se você estiver usando query params
+  searchParams?: {
+    [key: string]: string | string[] | undefined;
+  };
 }
 
 export default function EditPostPage({ params }: EditPostPageProps) {
