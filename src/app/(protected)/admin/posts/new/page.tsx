@@ -6,7 +6,11 @@ export default function NewPostPage() {
   return (
     <div>
       <h1>New Post</h1>
-      <PostForm onSubmit={createPost} />
+      <PostForm
+        onSubmit={(title, content) =>
+          createPost({ title, content }).then(() => {})
+        }
+      />
     </div>
   );
 }
