@@ -3,15 +3,14 @@
 import PostForm from "@/modules/blog/components/PostForm";
 
 export default function EditPostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-
   const handleSubmit = async (title: string, content: string) => {
-    // Lógica para enviar os dados do formulário
+    // TODO: implementar lógica de envio dos dados do formulário
+    console.log("Enviando dados:", { title, content, slug: params.slug });
   };
 
   return (
     <div>
-      <h1>Edit Post: {slug}</h1>
+      <h1>Edit Post: {params.slug}</h1>
       <PostForm
         initialData={{ title: "", content: "" }}
         onSubmit={handleSubmit}
