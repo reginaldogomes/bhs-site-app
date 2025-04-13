@@ -1,6 +1,6 @@
 // hooks/usePrismaQuery.ts
 import { useState, useEffect, useCallback } from "react";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 type PrismaModel = keyof typeof prisma;
 
@@ -22,7 +22,7 @@ type UsePrismaQueryResult<T> = {
 function usePrismaQuery<T>(
   model: PrismaModel,
   method: string,
-  options?: QueryOptions,
+  options?: QueryOptions
 ): UsePrismaQueryResult<T> {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);

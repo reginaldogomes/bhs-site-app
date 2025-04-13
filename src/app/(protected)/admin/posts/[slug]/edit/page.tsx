@@ -1,14 +1,7 @@
 // filepath: /src/app/(protected)/admin/posts/[slug]/edit/page.tsx
-import React from "react";
 import PostForm from "@/modules/blog/components/PostForm";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
-const EditPostPage: React.FC<PageProps> = ({ params }) => {
+export default function EditPostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   const handleSubmit = async (title: string, content: string) => {
@@ -24,6 +17,4 @@ const EditPostPage: React.FC<PageProps> = ({ params }) => {
       />
     </div>
   );
-};
-
-export default EditPostPage;
+}
