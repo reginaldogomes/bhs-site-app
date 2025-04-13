@@ -11,11 +11,14 @@ function slugify(text: string): string {
     .replace(/(^-|-$)+/g, "");
 }
 
-// Criar um novo post
-export async function createPost(title: string, content: string) {
-  const slug = slugify(title);
+// Função para criar um novo post
+export async function createPost(data: { title: string; content: string }) {
+  const slug = slugify(data.title);
   const post = await prisma.post.create({
-    data: { title, slug, content },
+    data: {
+      ...data,
+      slug,
+    },
   });
   return post;
 }

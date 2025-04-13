@@ -1,3 +1,4 @@
+// filepath: /home/reginaldogomes/Projects/bhs-site-app/prisma/seed.ts
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
