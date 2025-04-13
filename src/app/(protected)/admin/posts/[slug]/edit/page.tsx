@@ -2,13 +2,15 @@
 
 import PostForm from "@/modules/blog/components/PostForm";
 
-type EditPostPageProps = {
+interface EditPostPageProps {
   params: {
     slug: string;
   };
-};
+  // Add other props if needed (searchParams, etc.)
+}
 
 export default function EditPostPage({ params }: EditPostPageProps) {
+  const { slug } = params;
   const handleSubmit = async (title: string, content: string) => {
     console.log("Submetendo:", { title, content, slug: params.slug });
     // lógica de envio...
