@@ -1,4 +1,5 @@
 // filepath: /src/app/(protected)/admin/posts/[slug]/edit/page.tsx
+
 import PostForm from "@/modules/blog/components/PostForm";
 
 export default function EditPostPage({ params }: { params: { slug: string } }) {
@@ -10,7 +11,7 @@ export default function EditPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <h1>Edit Post</h1>
+      <h1>Edit Post: {slug}</h1>
       <PostForm
         initialData={{ title: "", content: "" }}
         onSubmit={handleSubmit}
