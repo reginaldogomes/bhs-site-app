@@ -1,6 +1,6 @@
 // app/(public)/posts/page.tsx
-import { getPosts } from "@blog/actions/postActions";
-import PostList from "@blog/components/PostList";
+import { getPosts } from "@/modules/blog/actions/postActions";
+import PostList from "@/modules/blog/components/PostList";
 
 export default async function PostsPage() {
   const posts = await getPosts();

@@ -15,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "types": [
       "next"
@@ -28,9 +28,6 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ],
-      "@blog/*": [
-        "./src/modules/blog/*"
       ]
     }
   },

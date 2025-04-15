@@ -1,17 +1,14 @@
 // src/app/(protected)/admin/posts/[slug]/edit/page.tsx
 
-import PostForm from "../../../../../../modules/blog/components/PostForm";
+import PostForm from "@/modules/blog/components/PostForm";
 
 interface EditPostPageProps {
   params: {
     slug: string;
   };
-  searchParams?: {
-    [key: string]: string | string[] | undefined;
-  };
 }
 
-export default async function EditPostPage({ params }: EditPostPageProps) {
+export default function EditPostPage({ params }: EditPostPageProps) {
   const { slug } = params;
 
   const handleSubmit = async (title: string, content: string) => {
@@ -22,10 +19,7 @@ export default async function EditPostPage({ params }: EditPostPageProps) {
   return (
     <div>
       <h1>Editando post: {slug}</h1>
-      <PostForm
-        initialData={{ title: "", content: "" }}
-        onSubmit={handleSubmit}
-      />
+      <PostForm initialData={{ title: "", content: "" }} onSubmit={handleSubmit} />
     </div>
   );
 }
