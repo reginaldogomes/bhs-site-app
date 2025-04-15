@@ -5,7 +5,14 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 
+// export const metadata = {
+//   title: "BHS Site App",
+//   description:
+//     "Aplicação fullstack para gerenciar e otimizar o site da BH Solutions",
+// };
+
 import { SITE_NAME, SITE_DESCRIPTION } from "../constants";
+import DefaultSeoClient from "@/components/DefaultSeoClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <DefaultSeoClient />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-primary`}
       >
