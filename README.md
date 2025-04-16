@@ -25,14 +25,14 @@ Este projeto tem como principais objetivos:
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Camada            | Tecnologias                                              |
-|-------------------|----------------------------------------------------------|
-| **Frontend**      | Next.js 15, React, TypeScript, Tailwind CSS              |
-| **Backend**       | Vercel Serverless Functions (Node.js)                    |
-| **Banco de Dados**| PostgreSQL, Prisma ORM                                   |
-| **Autenticação**  | JWT, OAuth 2.0 (Google e Microsoft)                      |
-| **Hospedagem**    | Vercel (com CI/CD e preview automático)                  |
-| **Containers**    | Docker, Docker Compose                                   |
+| Camada             | Tecnologias                                 |
+| ------------------ | ------------------------------------------- |
+| **Frontend**       | Next.js 15, React, TypeScript, Tailwind CSS |
+| **Backend**        | Vercel Serverless Functions (Node.js)       |
+| **Banco de Dados** | PostgreSQL, Prisma ORM                      |
+| **Autenticação**   | JWT, OAuth 2.0 (Google e Microsoft)         |
+| **Hospedagem**     | Vercel (com CI/CD e preview automático)     |
+| **Containers**     | Docker, Docker Compose                      |
 
 ---
 
