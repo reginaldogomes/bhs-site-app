@@ -7,6 +7,7 @@ import Main from "@/components/Main";
 
 import { WHATSAPP_NUMBER, EMAIL_CONTACT, LINKEDIN_LINK } from "@/constants";
 import { NextSeo } from "next-seo";
+import { LeadForm } from "@/components/LeadForm";
 
 const contactInfo = {
   phone: "+55 (38) 3740 4012",
@@ -53,6 +54,7 @@ const ContactPage: React.FC = () => {
         {/* Formulário */}
 
         <ContactForm />
+        <LeadForm />
         {/* Informações de Contato */}
         <div className="space-y-6">
           <div>
