@@ -23,9 +23,8 @@ const contactInfo = {
 
 const ContactPage: React.FC = () => {
   const headingData = {
-    title: "Entre em Contato",
-    description:
-      "Preencha o formulário abaixo ou use as informações de contato para falar diretamente conosco. Estamos prontos para ajudar sua empresa a crescer com transformação digital.",
+    title: "Contato",
+    description: "Preencha o formulário ou utilize os canais abaixo.",
   };
 
   return (

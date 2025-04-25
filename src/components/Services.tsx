@@ -1,87 +1,79 @@
 // src/components/Services.tsx
 import React from "react";
+import Link from "next/link";
 import {
-  FaCode,
   FaCloud,
-  FaServer,
-  FaDatabase,
-  FaMobileAlt,
-  FaShoppingCart,
   FaCogs,
-  FaFileCode,
-  FaGithub,
+  FaDatabase,
+  FaLaptopCode,
+  FaPowerOff,
+  FaProjectDiagram,
+  FaRegChartBar,
+  FaShareAlt,
+  FaTabletAlt,
 } from "react-icons/fa";
 
 const services = [
   {
-    title: "Desenvolvimento de Software",
-    description: "Criamos soluções personalizadas para seu negócio.",
-    icon: <FaCode />,
+    title: "Consultoria em TI e Transformação Digital",
+    description:
+      "Planejamento estratégico, governança de TI e automação com a Power Platform.",
+    icon: <FaProjectDiagram />,
+    link: "/servicos/consultoria-ti",
   },
   {
-    title: "Consultoria em Nuvem",
+    title: "Desenvolvimento de Soluções Digitais",
     description:
-      "Ajudamos a migrar seus sistemas para a nuvem de forma eficiente.",
+      "Web apps, sistemas sob demanda, integração de APIs e soluções personalizadas.",
+    icon: <FaLaptopCode />,
+    link: "/servicos/desenvolvimento-digital",
+  },
+  {
+    title: "Cloud Computing com Microsoft Azure",
+    description:
+      "Migração, monitoramento, segurança e serviços gerenciados em nuvem Azure.",
     icon: <FaCloud />,
+    link: "/servicos/cloud-computing",
   },
   {
-    title: "Gerenciamento de Infraestrutura",
+    title: "Business Intelligence e Power Platform",
     description:
-      "Gerenciamos sua infraestrutura em nuvem para máxima performance.",
-    icon: <FaServer />,
+      "Dashboards com Power BI, Power Apps e automações com Power Automate.",
+    icon: <FaRegChartBar />,
+    link: "/servicos/business-intelligence",
   },
   {
-    title: "Desenvolvimento Web",
-    description: "Desenvolvemos websites responsivos e otimizados.",
-    icon: <FaMobileAlt />,
+    title: "Automação de Processos",
+    description:
+      "Fluxos de trabalho inteligentes com Microsoft 365 e Power Automate.",
+    icon: <FaCogs />,
+    link: "/servicos/automacao-processos",
   },
   {
     title: "Consultoria em Banco de Dados",
     description:
-      "Otimização e gestão de bancos de dados para desempenho superior.",
+      "Gestão, performance e segurança de dados com tecnologias Microsoft.",
     icon: <FaDatabase />,
-  },
-  {
-    title: "E-commerce",
-    description:
-      "Construção e manutenção de plataformas de e-commerce robustas.",
-    icon: <FaShoppingCart />,
-  },
-  {
-    title: "Automação de Processos",
-    description: "Automatizamos fluxos de trabalho para otimizar sua operação.",
-    icon: <FaCogs />,
-  },
-  {
-    title: "Desenvolvimento de APIs",
-    description: "Criamos APIs escaláveis e seguras para seu sistema.",
-    icon: <FaFileCode />,
-  },
-  {
-    title: "Integrações com GitHub",
-    description:
-      "Integramos sua aplicação ao GitHub para automação de deploys.",
-    icon: <FaGithub />,
+    link: "/servicos/consultoria-banco-dados",
   },
 ];
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="bg-gray-50 text-center">
-      <div className="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-12 px-4">
+    <section id="services" className="bg-gray-50 text-center py-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-4">
         {services.map((service, index) => (
-          <div
-            key={index}
-            className="p-8 bg-white rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 ease-in-out"
-          >
-            <div className="flex justify-center text-4xl text-blue-500 mb-4">
-              {service.icon}
+          <Link href={service.link} key={index} passHref>
+            <div className="cursor-pointer p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 ease-in-out">
+              <div className="flex justify-center text-4xl text-blue-600 mb-4">
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 text-base">{service.description}</p>
             </div>
-            <h3 className="mt-6 text-2xl font-semibold text-gray-800">
-              {service.title}
-            </h3>
-            <p className="mt-4 text-lg text-gray-600">{service.description}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

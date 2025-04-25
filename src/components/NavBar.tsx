@@ -4,7 +4,7 @@ import { FaBars, FaTimes, FaLinkedin } from "react-icons/fa";
 
 const menuItems = [
   { label: "Inicial", href: "/" },
-  { label: "Serviços", href: "/services" },
+  { label: "Soluções", href: "/solutions" },
   { label: "Sobre", href: "/about" },
   { label: "Contato", href: "/contact" },
 ];
