@@ -30,8 +30,7 @@ const Header: React.FC = () => {
             href="/login"
             className="flex items-center gap-2 bg-white text-primary px-4 py-2 rounded-full font-medium shadow hover:bg-gray-100 transition"
           >
-            <User size={18} />
-            Entrar
+            <User size={22} />
           </Link>
         ) : (
           <div className="relative">

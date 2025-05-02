@@ -47,7 +47,7 @@ async function getZohoAccessToken(): Promise<string> {
 
   if (!ZOHO_REFRESH_TOKEN || !ZOHO_CLIENT_ID || !ZOHO_CLIENT_SECRET) {
     throw new Error(
-      "Variáveis de ambiente do Zoho não definidas corretamente.",
+      "Variáveis de ambiente do Zoho não definidas corretamente."
     );
   }
 
@@ -62,7 +62,7 @@ async function getZohoAccessToken(): Promise<string> {
           client_secret: ZOHO_CLIENT_SECRET,
           grant_type: "refresh_token",
         },
-      },
+      }
     );
 
     return data.access_token;

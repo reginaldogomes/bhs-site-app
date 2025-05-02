@@ -19,7 +19,7 @@ const services = [
     description:
       "Planejamento estratégico, governança de TI e automação com a Power Platform.",
     icon: <FaProjectDiagram />,
-    link: "/servicos/consultoria-ti",
+    link: "/solutions/consultoria",
   },
   {
     title: "Desenvolvimento de Soluções Digitais",
