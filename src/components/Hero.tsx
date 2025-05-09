@@ -1,44 +1,43 @@
+"use client";
 // src/components/Hero.tsx
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
-const Hero: React.FC = () => {
-  const heroData = {
-    backgroundImage: "url(/transformacao-digital-bh-solutions.webp)",
-    title: "Transformação Digital com Inovação e Tecnologia",
-    description:
-      "Soluções em Nuvem, Infraestrutura, Redes e Desenvolvimento de Software com tecnologias Microsoft, AWS e Google Cloud",
-    button: {
-      text: "Saiba Mais",
-      link: "/services",
-    },
-  };
+const phrases = [
+  "Transformação Digital com Inovação e Tecnologia",
+  "Conectando seu negócio ao futuro com soluções inteligentes",
+  "Infraestrutura moderna para escalar suas ideias",
+  "Potencialize resultados com cloud, IA e automação",
+];
+
+const Hero = () => {
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+    }, 4000); // troca a cada 4 segundos
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section
-      className="h-screen flex items-center justify-center bg-cover bg-center relative text-white text-center"
-      style={{ backgroundImage: heroData.backgroundImage }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-pattern bg-bhs-100 opacity-75"></div>
+    <section className="h-screen flex items-center justify-center relative text-white text-center bg-gradient-to-br from-[#0683e2] to-[#4c6fe7] overflow-hidden">
+      {/* Overlay animado sutil */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-white/5 to-transparent opacity-30 animate-pulse-slow"></div>
 
-      {/* Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent opacity-25 bg-pattern"></div>
-
-      <div className="relative z-10 w-11/12 md:w-9/12">
-        {/* Título responsivo */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-          {heroData.title}
+      <div className="relative z-10 w-11/12 md:w-8/12 px-4 transition-all duration-700 ease-in-out">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight animate-slide-in-fade">
+          {phrases[currentPhraseIndex]}
         </h1>
-        {/* Descrição responsiva */}
-        <p className="mt-6 text-xl sm:text-2xl md:text-3xl leading-relaxed">
-          {heroData.description}
+        <p className="mt-6 text-lg sm:text-xl md:text-2xl leading-relaxed text-white/90 animate-fade-in-delay">
+          Soluções em Nuvem, Infraestrutura, Redes e Desenvolvimento de Software
+          com tecnologias Microsoft, AWS e Google Cloud
         </p>
-        {/* Botão */}
         <Link
-          href={heroData.button.link}
-          className="mt-8 inline-block px-8 py-4 bg-secondary text-white rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:bg-green-600 hover:scale-110 hover:shadow-2xl"
+          href="/services"
+          className="mt-10 inline-block px-8 py-4 bg-accent text-white font-medium rounded-full shadow-lg transition-transform duration-300 hover:bg-green-600 hover:scale-105 hover:shadow-2xl animate-fade-in-delay"
         >
-          {heroData.button.text}
+          Saiba Mais
         </Link>
       </div>
     </section>

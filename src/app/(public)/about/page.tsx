@@ -6,9 +6,8 @@ import { FaChartLine, FaLaptopCode, FaPeopleCarry } from "react-icons/fa";
 
 const About = () => {
   const headingData = {
-    title: "Sobre Nós",
-    description:
-      "Somos especialistas em transformação digital, ajudando empresas a evoluírem e alcançarem novos patamares com tecnologia de ponta. Nosso foco está em oferecer soluções personalizadas que atendem às necessidades específicas de cada cliente.",
+    title: "Sobre",
+    description: "Agilidade, segurança e performance para o seu negócio.",
   };
 
   return (

@@ -43,7 +43,7 @@ export default function RootLayout({
         <DefaultSeoClient />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-primary`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
         {children}
