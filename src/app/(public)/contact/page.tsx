@@ -30,7 +30,7 @@ const ContactPage: React.FC = () => {
 
   return (
     <Main>
-      <NextSeo
+      {/* <NextSeo
         title="Contato - BHS Site App"
         description="Entre em contato com a equipe do BHS Site App"
         canonical="https://bhs-site.vercel.app/contact"
@@ -47,7 +47,7 @@ const ContactPage: React.FC = () => {
             },
           ],
         }}
-      />
+      /> */}
       <PageHeading {...headingData} />
 
       <div className="container mx-auto bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
