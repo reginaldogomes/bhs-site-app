@@ -30,24 +30,6 @@ const ContactPage: React.FC = () => {
 
   return (
     <Main>
-      {/* <NextSeo
-        title="Contato - BHS Site App"
-        description="Entre em contato com a equipe do BHS Site App"
-        canonical="https://bhs-site.vercel.app/contact"
-        openGraph={{
-          title: "Contato - BHS Site App",
-          description: "Entre em contato com a equipe do BHS Site App",
-          url: "https://bhs-site.vercel.app/contact",
-          images: [
-            {
-              url: "https://bhs-site.vercel.app/og-contact.jpg",
-              width: 1200,
-              height: 630,
-              alt: "Contato BHS Site App",
-            },
-          ],
-        }}
-      /> */}
       <PageHeading {...headingData} />
 
       <div className="container mx-auto bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
