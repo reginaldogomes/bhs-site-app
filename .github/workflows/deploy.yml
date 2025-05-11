@@ -2,7 +2,7 @@ name: 🚀 Deploy para AWS Lightsail
 
 on:
   push:
-    branches: [main] # ou outra branch que você usar para produção
+    branches: [main] # ou outra branch usada para produção
 
 jobs:
   deploy:
@@ -12,7 +12,7 @@ jobs:
       - name: 📥 Clonar repositório
         uses: actions/checkout@v3
 
-      - name: 🔐 Configurar SSH
+      - name: 🔐 Configurar chave SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.LIGHTSAIL_KEY }}" > ~/.ssh/id_rsa
@@ -20,12 +20,13 @@ jobs:
           ssh-keyscan -H ${{ secrets.LIGHTSAIL_HOST }} >> ~/.ssh/known_hosts
         shell: bash
 
-      - name: 🚀 Deploy via SSH na instância
+      - name: 🚀 Executar deploy via SSH
         run: |
           ssh ${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }} << 'EOF'
-            cd /var/www/bhsolutions.com.br # ✅ Altere para o caminho real do seu projeto
+            cd /var/www/bhsolutions.com.br
             git pull origin main
             npm install
             npm run build
-            pm2 restart all
+            pm2 start ecosystem.config.js || pm2 restart bhsolutions.com.br
+            pm2 save
           EOF
