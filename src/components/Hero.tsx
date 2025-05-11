@@ -11,7 +11,7 @@ const Hero = () => {
       }}
     >
       {/* Overlay escuro para melhor leitura */}
-      <div className="absolute inset-0 bg-accent/95"></div>
+      <div className="absolute inset-0 bg-primary/95"></div>
 
       <div className="relative z-10 text-white text-center w-10/12 md:w-8/12 px-6">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
