@@ -1,11 +1,11 @@
-export default {
+module.exports = {
   apps: [
     {
-      name: "bhsolutions.com.br", // nome personalizado do processo
+      name: "bhsolutions.com.br",
+      cwd: "/var/www/bhsolutions.com.br", // Caminho onde está o package.json
       script: "npm",
       args: "run start",
-      cwd: "/var/www/bhsolutions.com.br",
-      interpreter: "bash",
+      interpreter: "/bin/bash",
       env: {
         NODE_ENV: "production",
         PORT: 3000,
