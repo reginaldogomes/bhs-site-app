@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "bhsolutions.com.br",
-      cwd: "/var/www/bhsolutions.com.br",
+      cwd: "/home/ubuntu/apps/bhsolutions.com.br",
       script: "npm",
       args: "start",
       interpreter: "/bin/bash",

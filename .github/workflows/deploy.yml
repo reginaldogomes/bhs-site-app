@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.LIGHTSAIL_USER }}
           key: ${{ secrets.LIGHTSAIL_KEY }}
           source: "deploy/*"
-          target: "/var/www/bhsolutions.com.br"
+          target: "/home/ubuntu/apps/bhsolutions.com.br"
 
       - name: 🔁 SSH - instalar e reiniciar com PM2
         uses: appleboy/ssh-action@v1.0.0
@@ -38,7 +38,7 @@ jobs:
           username: ${{ secrets.LIGHTSAIL_USER }}
           key: ${{ secrets.LIGHTSAIL_KEY }}
           script: |
-            cd /var/www/bhsolutions.com.br
+            cd /home/ubuntu/apps/bhsolutions.com.br
             npm install --omit=dev
             pm2 start ecosystem.config.js || pm2 restart bhsolutions.com.br
             pm2 save
