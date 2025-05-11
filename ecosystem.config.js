@@ -5,7 +5,7 @@ module.exports = {
       cwd: "/home/ubuntu/apps/bhsolutions.com.br",
       script: "npm",
       args: "start",
-      interpreter: "/bin/bash",
+      interpreter: "/bin/bash", // ✅ CORRETO para rodar npm
       env: {
         NODE_ENV: "production",
         PORT: 3000,
