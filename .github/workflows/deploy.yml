@@ -23,7 +23,7 @@ jobs:
       - name: 🚀 Deploy via SSH na instância
         run: |
           ssh ${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }} << 'EOF'
-            cd /home/ubuntu/seu-projeto # ✅ Altere para o caminho real do seu projeto
+            cd /var/www/bhsolutions.com.br # ✅ Altere para o caminho real do seu projeto
             git pull origin main
             npm install
             npm run build
