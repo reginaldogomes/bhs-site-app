@@ -1,153 +1,91 @@
 "use client";
 
-import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
-type FormData = {
-  name: string;
-  email: string;
-  message: string;
-};
-
-type Status = {
-  type: "success" | "error";
-  message: string;
-} | null;
-
-const schema = yup.object().shape({
-  name: yup.string().required("O nome é obrigatório."),
-  email: yup
-    .string()
-    .email("Digite um e-mail válido.")
-    .required("O e-mail é obrigatório."),
-  message: yup
-    .string()
-    .min(10, "A mensagem deve ter no mínimo 10 caracteres.")
-    .required("A mensagem é obrigatória."),
+const formSchema = z.object({
+  name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
+  email: z.string().email("E-mail inválido"),
+  message: z.string().min(5, "Mensagem deve ter pelo menos 5 caracteres"),
 });
 
-const ContactForm: React.FC = () => {
-  const [status, setStatus] = useState<Status>(null);
-
+const ContactForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormData>({
-    resolver: yupResolver(schema),
+  } = useForm({
+    resolver: zodResolver(formSchema),
   });
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
-    setStatus(null);
-
+  const onSubmit = async (data: any) => {
     try {
-      const response = await fetch("/api/email", {
+      const res = await fetch("/api/zoho-crm", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Erro ao enviar a mensagem.");
+      if (res.ok) {
+        alert("Contato salvo com sucesso!");
+        reset();
+      } else {
+        alert("Erro ao salvar contato.");
       }
-
-      setStatus({ type: "success", message: "E-mail enviado com sucesso!" });
-      reset();
-    } catch (error: unknown) {
-      const errorMessage =
-        error instanceof Error ? error.message : "Erro inesperado.";
-      setStatus({ type: "error", message: errorMessage });
-      console.error("Erro ao enviar o formulário:", error);
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao conectar com o CRM.");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
-        <label
-          htmlFor="name"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Nome
-        </label>
-        <input
-          type="text"
-          id="name"
-          {...register("name")}
-          className={`w-full p-3 border rounded-md ${
-            errors.name ? "border-red-500" : "border-gray-300"
-          }`}
-          placeholder="Digite seu nome"
-        />
-        {errors.name && (
-          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-        )}
-      </div>
-
-      <div>
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
-        >
-          E-mail
-        </label>
-        <input
-          type="email"
-          id="email"
-          {...register("email")}
-          className={`w-full p-3 border rounded-md ${
-            errors.email ? "border-red-500" : "border-gray-300"
-          }`}
-          placeholder="Digite seu e-mail"
-        />
-        {errors.email && (
-          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-        )}
-      </div>
-
-      <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Mensagem
-        </label>
-        <textarea
-          id="message"
-          {...register("message")}
-          rows={4}
-          className={`w-full p-3 border rounded-md ${
-            errors.message ? "border-red-500" : "border-gray-300"
-          }`}
-          placeholder="Digite sua mensagem"
-        ></textarea>
-        {errors.message && (
-          <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-        )}
-      </div>
-
-      <button
-        type="submit"
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
-      </button>
-
-      {status && (
-        <p
-          className={`text-sm mt-2 ${
-            status.type === "success" ? "text-green-500" : "text-red-500"
-          }`}
-        >
-          {status.message}
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-4 max-w-md mx-auto"
+    >
+      <Input
+        type="text"
+        {...register("name")}
+        placeholder="Seu nome"
+        className="w-full"
+      />
+      {errors.name && (
+        <p className="text-red-600 text-sm">
+          {errors.name?.message?.toString()}
         </p>
       )}
+
+      <Input
+        type="email"
+        {...register("email")}
+        placeholder="Seu e-mail"
+        className="w-full"
+      />
+      {errors.email && (
+        <p className="text-red-600 text-sm">
+          {errors.email.message?.toString()}
+        </p>
+      )}
+
+      <Textarea
+        {...register("message")}
+        placeholder="Sua mensagem"
+        className="w-full"
+      />
+      {errors.message && (
+        <p className="text-red-600 text-sm">
+          {errors.message?.message?.toString()}
+        </p>
+      )}
+
+      <Button type="submit" disabled={isSubmitting} className="w-full">
+        {isSubmitting ? "Enviando..." : "Enviar"}
+      </Button>
     </form>
   );
 };
