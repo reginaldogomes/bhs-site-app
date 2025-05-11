@@ -17,21 +17,16 @@ jobs:
           npm ci
           npm run build
 
-      - name: 🗂️ Preparar diretório para deploy
-        run: |
-          mkdir deploy
-          cp -R .next public package.json ecosystem.config.js deploy
-
       - name: 🚀 Enviar arquivos via SCP para Lightsail
         uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.LIGHTSAIL_HOST }}
           username: ${{ secrets.LIGHTSAIL_USER }}
           key: ${{ secrets.LIGHTSAIL_KEY }}
-          source: "deploy/*"
+          source: ".next,public,package.json,ecosystem.config.js"
           target: "/home/ubuntu/apps/bhsolutions.com.br"
 
-      - name: 🔁 SSH - instalar e reiniciar com PM2
+      - name: 🔁 SSH - instalar dependências e reiniciar com PM2
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.LIGHTSAIL_HOST }}
