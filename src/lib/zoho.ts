@@ -34,7 +34,6 @@ export async function sendLeadToZoho(data: ContactData) {
         "Content-Type": "application/json",
       },
     });
-
     return response.data;
   } catch (error) {
     handleAxiosError(error, "enviar contato para o Zoho CRM");
