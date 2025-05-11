@@ -36,7 +36,6 @@ const ContactPage: React.FC = () => {
         {/* Formulário */}
 
         <ContactForm />
-        <LeadForm />
         {/* Informações de Contato */}
         <div className="space-y-6">
           <div>

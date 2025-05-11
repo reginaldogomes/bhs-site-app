@@ -10,7 +10,6 @@ const Page: React.FC = () => {
       <Hero />
       <div className="container mx-auto py-6">
         <Services />
-        <LeadCaptureCTA />
       </div>
     </Main>
   );
