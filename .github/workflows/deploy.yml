@@ -1,28 +1,29 @@
-name: Deploy to Lightsail
+name: 🚀 Deploy para AWS Lightsail
 
 on:
   push:
-    branches: [main]
+    branches: [main] # ou outra branch que você usar para produção
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
+      - name: 📥 Clonar repositório
         uses: actions/checkout@v3
 
-      - name: Configurar SSH
+      - name: 🔐 Configurar SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.LIGHTSAIL_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.LIGHTSAIL_HOST }} >> ~/.ssh/known_hosts
+        shell: bash
 
-      - name: Deploy via SSH
+      - name: 🚀 Deploy via SSH na instância
         run: |
           ssh ${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }} << 'EOF'
-            cd /caminho/do/seu/projeto
+            cd /home/ubuntu/seu-projeto # ✅ Altere para o caminho real do seu projeto
             git pull origin main
             npm install
             npm run build
