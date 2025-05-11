@@ -13,33 +13,37 @@ const formSchema = z.object({
   message: z.string().min(5, "Mensagem deve ter pelo menos 5 caracteres"),
 });
 
+type FormData = z.infer<typeof formSchema>;
+
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm({
+  } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FormData) => {
     try {
-      const res = await fetch("/api/zoho-crm", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
+      const result = await res.json();
+
       if (res.ok) {
-        alert("Contato salvo com sucesso!");
+        alert("Mensagem enviada com sucesso!");
         reset();
       } else {
-        alert("Erro ao salvar contato.");
+        alert(`Erro ao enviar mensagem: ${result.error}`);
       }
     } catch (error) {
-      console.error(error);
-      alert("Erro ao conectar com o CRM.");
+      console.error("Erro ao enviar mensagem:", error);
+      alert("Erro interno ao enviar a mensagem.");
     }
   };
 
@@ -48,39 +52,19 @@ const ContactForm = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-4 max-w-md mx-auto"
     >
-      <Input
-        type="text"
-        {...register("name")}
-        placeholder="Seu nome"
-        className="w-full"
-      />
+      <Input {...register("name")} placeholder="Seu nome" />
       {errors.name && (
-        <p className="text-red-600 text-sm">
-          {errors.name?.message?.toString()}
-        </p>
+        <p className="text-red-600 text-sm">{errors.name.message}</p>
       )}
 
-      <Input
-        type="email"
-        {...register("email")}
-        placeholder="Seu e-mail"
-        className="w-full"
-      />
+      <Input type="email" {...register("email")} placeholder="Seu e-mail" />
       {errors.email && (
-        <p className="text-red-600 text-sm">
-          {errors.email.message?.toString()}
-        </p>
+        <p className="text-red-600 text-sm">{errors.email.message}</p>
       )}
 
-      <Textarea
-        {...register("message")}
-        placeholder="Sua mensagem"
-        className="w-full"
-      />
+      <Textarea {...register("message")} placeholder="Sua mensagem" />
       {errors.message && (
-        <p className="text-red-600 text-sm">
-          {errors.message?.message?.toString()}
-        </p>
+        <p className="text-red-600 text-sm">{errors.message.message}</p>
       )}
 
       <Button type="submit" disabled={isSubmitting} className="w-full">
