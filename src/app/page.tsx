@@ -12,7 +12,6 @@ const Page: React.FC = () => {
       <div className="container mx-auto py-6">
         <Services />
       </div>
-      <Testando />
     </Main>
   );
 };
