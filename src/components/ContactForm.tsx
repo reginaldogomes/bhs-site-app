@@ -50,24 +50,60 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 max-w-md mx-auto"
+      className="space-y-6 max-w-lg mx-auto p-6 rounded-lg shadow-md"
     >
-      <Input {...register("name")} placeholder="Seu nome" />
-      {errors.name && (
-        <p className="text-red-600 text-sm">{errors.name.message}</p>
-      )}
+      <div className="flex flex-col gap-2">
+        <label className="text-gray-700 font-medium" htmlFor="name">
+          Nome
+        </label>
+        <Input
+          {...register("name")}
+          id="name"
+          placeholder="Seu nome"
+          className="p-4 text-lg bg-gray-100 text-gray-900 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-400"
+        />
+        {errors.name && (
+          <p className="text-red-500 text-sm">{errors.name.message}</p>
+        )}
+      </div>
 
-      <Input type="email" {...register("email")} placeholder="Seu e-mail" />
-      {errors.email && (
-        <p className="text-red-600 text-sm">{errors.email.message}</p>
-      )}
+      <div className="flex flex-col gap-2">
+        <label className="text-gray-700 font-medium" htmlFor="email">
+          E-mail
+        </label>
+        <Input
+          type="email"
+          {...register("email")}
+          id="email"
+          placeholder="Seu e-mail"
+          className="p-4 text-lg bg-gray-100 text-gray-900 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-400"
+        />
+        {errors.email && (
+          <p className="text-red-500 text-sm">{errors.email.message}</p>
+        )}
+      </div>
 
-      <Textarea {...register("message")} placeholder="Sua mensagem" />
-      {errors.message && (
-        <p className="text-red-600 text-sm">{errors.message.message}</p>
-      )}
+      <div className="flex flex-col gap-2">
+        <label className="text-gray-700 font-medium" htmlFor="message">
+          Mensagem
+        </label>
+        <Textarea
+          {...register("message")}
+          id="message"
+          placeholder="Sua mensagem"
+          rows={5}
+          className="p-4 text-lg bg-gray-100 text-gray-900 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-400"
+        />
+        {errors.message && (
+          <p className="text-red-500 text-sm">{errors.message.message}</p>
+        )}
+      </div>
 
-      <Button type="submit" disabled={isSubmitting} className="w-full">
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full py-3 bg-green-500 text-white font-medium text-lg rounded-md shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+      >
         {isSubmitting ? "Enviando..." : "Enviar"}
       </Button>
     </form>

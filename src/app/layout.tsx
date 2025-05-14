@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -12,7 +13,13 @@ import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 // };
 
 import { SITE_NAME, SITE_DESCRIPTION } from "../constants";
-import DefaultSeoClient from "@/components/DefaultSeoClient";
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"], // escolha os pesos desejados
+  variable: "--font-raleway", // define uma variável CSS
+  display: "swap",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,10 +45,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="pt-BR" className={raleway.variable}>
+      <body className="ntialiased">
         <Header />
         {children}
         <Footer />

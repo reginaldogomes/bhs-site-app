@@ -3,7 +3,7 @@ import LeadCaptureCTA from "@/components/LeadCaptureCTA";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
 import Main from "@/components/Main";
-import Testando from "@/components/Testando";
+import HighlightSection from "@/components/HighlightSection";
 
 const Page: React.FC = () => {
   return (
@@ -11,6 +11,7 @@ const Page: React.FC = () => {
       <Hero />
       <div className="container mx-auto py-6">
         <Services />
+        <HighlightSection />
       </div>
     </Main>
   );
