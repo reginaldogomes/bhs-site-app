@@ -7,12 +7,23 @@ type PageHeadingProps = {
   description: string;
 };
 
+const heroData = {
+  overlayColor: "bg-primary/95",
+};
+
 const PageHeading: React.FC<PageHeadingProps> = ({ title, description }) => {
   return (
-    <section className="py-12 bg-gradient-to-br from-[#0683e2] to-[#4c6fe7] text-white">
-      <div className="max-w-4xl mx-auto px-4">
+    <section
+      className="py-12 bg-gradient-to-br from-[#0683e2] to-[#4c6fe7] text-white relative bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/bg-hero.jpeg')", // Substitua pelo caminho real da imagem
+      }}
+    >
+      {/* Overlay escuro para melhor leitura */}
+      <div className={`absolute inset-0 ${heroData.overlayColor}`}></div>
+      <div className="max-w-4xl mx-auto px-4 relative">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
             {title}
           </h1>
           <div className="h-1 w-20 bg-accent rounded-full mx-auto mb-6"></div>
