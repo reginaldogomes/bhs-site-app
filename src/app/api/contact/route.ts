@@ -18,30 +18,29 @@ export async function POST(req: Request): Promise<NextResponse> {
       );
     }
 
-    // Configurar transporte de email com validação
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp.gmail.com",
       port: Number(process.env.SMTP_PORT) || 587,
-      secure: false, // Use `true` apenas para porta 465
+      secure: false,
+      requireTLS: true,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     });
 
-    // Verificar se o transporte está configurado corretamente
     await transporter.verify();
 
-    // Enviar email
     await transporter.sendMail({
-      from: `"${body.name}" <${body.email}>`,
+      from: `"${body.name}" <${process.env.SMTP_USER}>`,
+      replyTo: body.email,
       to: process.env.SMTP_TO || process.env.SMTP_USER,
       subject: "Novo contato via site",
-      text: body.message,
       html: `
         <p><strong>Nome:</strong> ${body.name}</p>
         <p><strong>Email:</strong> ${body.email}</p>
-        <p><strong>Mensagem:</strong><br>${body.message}</p>
+        <p><strong>Mensagem:</strong></p>
+        <p>${body.message.replace(/\n/g, "<br>")}</p>
       `,
     });
 

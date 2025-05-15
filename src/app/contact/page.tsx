@@ -32,7 +32,7 @@ const ContactPage: React.FC = () => {
     <Main>
       <PageHeading {...headingData} />
 
-      <div className="container mx-auto bg-white shadow-lg rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="container mx-auto rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Formulário */}
 
         <ContactForm />
