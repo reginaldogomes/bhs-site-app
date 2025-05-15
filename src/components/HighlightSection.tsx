@@ -18,38 +18,37 @@ const benefits = [
   { icon: ShieldCheck, text: "Escalabilidade com segurança em nuvem" },
 ];
 
-const HighlightSection = () => {
-  return (
-    <section className="py-16 px-6 max-w-6xl mx-auto text-center">
-      <motion.h2
-        className="text-4xl font-bold text-gray-800 mb-12 tracking-wide"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        Benefícios da Transformação Digital
-      </motion.h2>
+const HighlightSection = () => (
+  <section className="py-16 px-6 max-w-6xl mx-auto text-center">
+    <motion.h2
+      className="text-4xl font-bold text-gray-800 mb-12 tracking-wide"
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      Benefícios da Transformação Digital
+    </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {benefits.map((benefit, index) => (
-          <motion.div
-            key={index}
-            className="flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
-          >
-            <Card className="w-full bg-gradient-to-br from-gray-100 to-gray-300 shadow-xl border border-gray-200 rounded-lg p-8 hover:shadow-2xl transition-all duration-300">
-              <CardHeader className="flex items-center gap-4 text-lg font-semibold text-gray-700">
-                <benefit.icon className="w-6 h-6 text-green-500" />
-                {benefit.text}
-              </CardHeader>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-};
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {benefits.map(({ icon: Icon, text }, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+        >
+          <Card className="bg-white shadow-lg border border-gray-100 rounded-xl p-6 hover:shadow-xl transition">
+            <CardHeader className="flex items-center gap-4 text-gray-700 font-medium">
+              <Icon className="w-6 h-6 text-primary" />
+              {text}
+            </CardHeader>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
 
 export default HighlightSection;
