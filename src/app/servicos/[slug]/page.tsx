@@ -5,11 +5,11 @@ import Main from "@/components/Main";
 import PageHeading from "@/components/PageHeading";
 
 interface PageProps {
-  params: { slug: string };
+  params: { slug: string }; // Removido o Promise
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = params; // Removido o await pois params não é mais uma Promise
   const service = serviceDetails.find((s) => s.slug === slug);
 
   if (!service) return notFound();
