@@ -8,14 +8,16 @@ import {
   Zap,
   RefreshCcw,
   ShieldCheck,
+  Globe,
 } from "lucide-react";
 
 const benefits = [
-  { icon: CheckCircle, text: "Redução de custos operacionais" },
-  { icon: BarChart3, text: "Ganhos em produtividade e agilidade" },
-  { icon: RefreshCcw, text: "Visibilidade em tempo real com dashboards" },
-  { icon: Zap, text: "Automação de tarefas repetitivas" },
-  { icon: ShieldCheck, text: "Escalabilidade com segurança em nuvem" },
+  { icon: CheckCircle, text: "Redução de custos e perdas operacionais" },
+  { icon: BarChart3, text: "Mais agilidade e produtividade diária" },
+  { icon: RefreshCcw, text: "Informações em tempo real e seguras" },
+  { icon: Zap, text: "Automação de tarefas e processos internos" },
+  { icon: ShieldCheck, text: "Escalabilidade com segurança e controle" },
+  { icon: Globe, text: "Conectividade global com colaboração ativa" },
 ];
 
 const HighlightSection = () => (

@@ -10,12 +10,6 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-raleway)", "sans-serif"],
       },
-      colors: {
-        primary: "#0683e2",
-        secondary: "#34495e",
-        accent: "#4C6FE7",
-      },
-
       animation: {
         "fade-in": "fade-in 1s ease-out forwards",
         "fade-in-delay": "fade-in 1.5s ease-out forwards",

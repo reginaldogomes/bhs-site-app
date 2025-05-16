@@ -16,6 +16,7 @@ export default function ServiceDetailPage({ params }: Params) {
     title: "Soluções",
     description: "Soluções que geram valor real e aumentam seus resultados.",
   };
+
   const service = serviceDetails.find((s) => s.slug === params.slug);
 
   if (!service) return notFound();

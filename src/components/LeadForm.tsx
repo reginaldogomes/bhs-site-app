@@ -28,7 +28,7 @@ const LeadForm = () => {
     } catch (error: any) {
       console.error(
         "Erro ao enviar dados:",
-        error.response?.data || error.message
+        error.response?.data || error.message,
       );
       alert("Ocorreu um erro ao enviar os dados. Tente novamente.");
     }

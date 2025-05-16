@@ -50,61 +50,64 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-6 max-w-lg mx-auto p-6 rounded-lg shadow-md"
+      className="space-y-8 max-w-x3 mx-auto p-8 bg-white rounded-2xl shadow-xl border border-gray-200"
     >
       <div className="flex flex-col gap-2">
-        <label className="text-gray-700 font-medium" htmlFor="name">
-          Nome
+        <label className="text-sm font-semibold text-gray-700" htmlFor="name">
+          Nome completo
         </label>
         <Input
           {...register("name")}
           id="name"
-          placeholder="Seu nome"
-          className="p-4 text-lg bg-gray-100 text-gray-900 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-400"
+          placeholder="Digite seu nome"
+          className="p-4 text-base bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary"
         />
         {errors.name && (
-          <p className="text-red-500 text-sm">{errors.name.message}</p>
+          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-gray-700 font-medium" htmlFor="email">
-          E-mail
+        <label className="text-sm font-semibold text-gray-700" htmlFor="email">
+          Endereço de e-mail
         </label>
         <Input
           type="email"
           {...register("email")}
           id="email"
-          placeholder="Seu e-mail"
-          className="p-4 text-lg bg-gray-100 text-gray-900 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-400"
+          placeholder="exemplo@email.com"
+          className="p-4 text-base bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary"
         />
         {errors.email && (
-          <p className="text-red-500 text-sm">{errors.email.message}</p>
+          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-gray-700 font-medium" htmlFor="message">
-          Mensagem
+        <label
+          className="text-sm font-semibold text-gray-700"
+          htmlFor="message"
+        >
+          Sua mensagem
         </label>
         <Textarea
           {...register("message")}
           id="message"
-          placeholder="Sua mensagem"
-          rows={5}
-          className="p-4 text-lg bg-gray-100 text-gray-900 rounded-md border border-gray-300 focus:ring-2 focus:ring-green-400"
+          placeholder="Descreva sua necessidade ou solicitação."
+          rows={6}
+          className="p-4 text-base bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary"
         />
         {errors.message && (
-          <p className="text-red-500 text-sm">{errors.message.message}</p>
+          <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
         )}
       </div>
 
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3 bg-green-500 text-white font-medium text-lg rounded-md shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+        className="w-full py-3 bg-primary text-white font-semibold text-base rounded-lg shadow-md transition hover:shadow-lg hover:scale-[1.02]"
       >
-        {isSubmitting ? "Enviando..." : "Enviar"}
+        {isSubmitting ? "Enviando..." : "Enviar mensagem"}
       </Button>
     </form>
   );
