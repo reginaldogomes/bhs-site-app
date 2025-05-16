@@ -33,13 +33,7 @@ const Hero = () => {
         <p className="mt-4 text-lg md:text-xl capitalize text-white/90 w-8/12 mx-auto">
           {heroData.description}
         </p>
-        <Link href={heroData.button.href} className={heroData.button.styles}>
-          {heroData.button.text}
-        </Link>
         <LinkButton href="/about" variant="default">
-          Ir para Sobre
-        </LinkButton>
-        <LinkButton href="/about" variant="outline">
           Ir para Sobre
         </LinkButton>
       </div>
