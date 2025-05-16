@@ -1,29 +1,25 @@
-// src/app/servicos/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { serviceDetails } from "@/data/services";
 import Link from "next/link";
 import Main from "@/components/Main";
 import PageHeading from "@/components/PageHeading";
 
-interface Params {
-  params: {
-    slug: string;
-  };
+interface PageProps {
+  params: { slug: string };
 }
 
-export default function ServiceDetailPage({ params }: Params) {
-  const headingData = {
-    title: "Soluções",
-    description: "Soluções que geram valor real e aumentam seus resultados.",
-  };
-
-  const service = serviceDetails.find((s) => s.slug === params.slug);
+export default async function ServiceDetailPage({ params }: PageProps) {
+  const { slug } = params;
+  const service = serviceDetails.find((s) => s.slug === slug);
 
   if (!service) return notFound();
 
   return (
     <Main>
-      <PageHeading {...headingData} />
+      <PageHeading
+        title="Soluções"
+        description="Soluções que geram valor real e aumentam seus resultados."
+      />
 
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
@@ -56,6 +52,7 @@ export default function ServiceDetailPage({ params }: Params) {
             <Link
               href="/contato"
               className="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg shadow hover:bg-blue-700 transition"
+              aria-label="Solicitar uma demonstração"
             >
               Solicitar uma demonstração
             </Link>
