@@ -2,6 +2,18 @@
 
 @theme {
   --color-primary: #0683e2;
-  --color-secondary: #34495e;
+  --color-primary-dark: #035aa6;
+  --color-primary-light: #a4d8f7;
+
   --color-accent: #4c6fe7;
+  --color-accent-light: #b6c9ff;
+
+  --color-secondary: #34495e;
+  --color-neutral: #e5eaf0;
+  --color-background: #f9fbfc;
+
+  --color-text: #1f2d3d;
+
+  --color-error: #e74c3c;
+  --color-success: #2ecc71;
 }

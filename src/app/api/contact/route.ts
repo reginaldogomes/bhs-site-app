@@ -14,7 +14,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (!body.name || !body.email || !body.message) {
       return NextResponse.json(
         { error: "Todos os campos são obrigatórios." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -49,7 +49,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     console.error("Erro ao enviar email:", error);
     return NextResponse.json(
       { error: "Erro interno ao processar a solicitação." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
