@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import LinkButton from "./Link";
 
 const heroData = {
   backgroundImage: "url('/bg-hero.jpeg')", // Substitua pelo caminho real da imagem
@@ -35,6 +36,12 @@ const Hero = () => {
         <Link href={heroData.button.href} className={heroData.button.styles}>
           {heroData.button.text}
         </Link>
+        <LinkButton href="/about" variant="default">
+          Ir para Sobre
+        </LinkButton>
+        <LinkButton href="/about" variant="outline">
+          Ir para Sobre
+        </LinkButton>
       </div>
     </section>
   );

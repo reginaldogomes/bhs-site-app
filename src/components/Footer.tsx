@@ -12,7 +12,7 @@ const footerData = {
 };
 
 const Footer: React.FC = () => (
-  <footer className="py-6 bg-accent text-white text-center text-sm">
+  <footer className="py-6 bg-primary text-white text-center text-sm">
     <p className="mb-2">
       &copy; {footerData.year} {footerData.company} - Todos os direitos
       reservados
