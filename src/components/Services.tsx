@@ -6,11 +6,8 @@ import {
   FaCogs,
   FaDatabase,
   FaLaptopCode,
-  FaPowerOff,
   FaProjectDiagram,
   FaRegChartBar,
-  FaShareAlt,
-  FaTabletAlt,
 } from "react-icons/fa";
 
 const services = [
