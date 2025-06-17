@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  build_and_deploy:
+  build_and_deploy_job: # <- nome necessário para a CLI funcionar
     runs-on: ubuntu-latest
     permissions:
       contents: read
