@@ -9,8 +9,7 @@
     "lint": "next lint",
     "lint:fix": "eslint --fix",
     "format": "prettier --write .",
-    "test": "jest",
-    "postbuild": "swa deploy ./ --output-location .output"
+    "test": "jest"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
