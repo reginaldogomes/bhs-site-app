@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
           ))}
         </ul>
         <Link
-          href="/especialista"
+          href="/contact"
           className="ml-4 bg-white text-primary font-semibold px-4 py-2 rounded-full shadow hover:bg-gray-100 transition"
         >
           Solicitar Consultoria

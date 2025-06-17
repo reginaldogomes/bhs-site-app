@@ -6,11 +6,8 @@ import {
   FaCogs,
   FaDatabase,
   FaLaptopCode,
-  FaPowerOff,
   FaProjectDiagram,
   FaRegChartBar,
-  FaShareAlt,
-  FaTabletAlt,
 } from "react-icons/fa";
 
 const services = [
@@ -63,17 +60,15 @@ const Services: React.FC = () => {
     <section id="services" className="bg-gray-50 text-center py-12">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-4">
         {services.map((service, index) => (
-          <Link href={service.link} key={index} passHref>
-            <div className="cursor-pointer p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 ease-in-out">
-              <div className="flex justify-center text-4xl text-blue-600 mb-4">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 text-base">{service.description}</p>
+          <div className="cursor-pointer p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 ease-in-out">
+            <div className="flex justify-center text-4xl text-blue-600 mb-4">
+              {service.icon}
             </div>
-          </Link>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">
+              {service.title}
+            </h3>
+            <p className="text-gray-600 text-base">{service.description}</p>
+          </div>
         ))}
       </div>
     </section>
