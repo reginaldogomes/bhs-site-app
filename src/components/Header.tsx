@@ -25,7 +25,7 @@ const Header: React.FC = () => {
       <div className="flex items-center gap-4">
         <Navbar />
 
-        {!isLoggedIn ? (
+        {/* {!isLoggedIn ? (
           <Link
             href="/login"
             className="flex items-center gap-2 bg-white text-primary px-4 py-2 rounded-full font-medium shadow hover:bg-gray-100 transition"
@@ -77,7 +77,7 @@ const Header: React.FC = () => {
               </div>
             )}
           </div>
-        )}
+        )} */}
       </div>
     </header>
   );
