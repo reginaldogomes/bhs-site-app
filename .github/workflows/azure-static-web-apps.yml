@@ -5,19 +5,21 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
     branches:
       - main
 
 jobs:
-  build_and_deploy_job: # <- nome necessário para a CLI funcionar
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
+    name: Build and Deploy Job
     permissions:
       contents: read
       id-token: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Node.js
@@ -28,14 +30,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build with Azure SWA CLI (SSR)
-        run: npx swa build --app-location . --output-location .output
+      - name: Build Next.js
+        run: npm run build
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
-          action: "upload" # ✅ obrigatório
+          action: "upload"
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          app_location: "."
-          output_location: ".output"
+          app_location: "." # Diretório raiz do app Next.js
+          output_location: ".next" # Para SSR com Next.js
           skip_app_build: true
