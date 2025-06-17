@@ -38,5 +38,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: "upload"
-          app_location: "/" # onde está o projeto (pode ser ./ ou ./app por exemplo)
+          app_location: "./src" # onde está o projeto (pode ser ./ ou ./app por exemplo)
           output_location: ".next" # resultado do build
