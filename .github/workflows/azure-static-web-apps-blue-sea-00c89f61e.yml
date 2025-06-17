@@ -20,27 +20,38 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "18"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Next.js
+      - name: Build Next.js app
         run: npm run build
 
-      - name: Generate Azure Functions for SSR
-        run: npx swa build --app-location . --output-location .output
+      # Opcional: Salva artefatos de build para debugging
+      - name: Upload build artifacts (optional)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build-artifacts
+          path: .next
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          action: upload
-          app_location: "." # raiz do projeto com next.config.js
-          output_location: ".next" # saída padrão do Next.js
-          api_location: ".output/functions" # onde ficam as Azure Functions geradas para SSR
+          action: "upload"
+          app_location: "." # Diretório raiz do app Next.js
+          output_location: ".next" # Para SSR com Next.js
+          skip_app_build: true
+
+      # Opcional: Limpeza de dependências após o job
+      - name: Clean up node_modules (optional)
+        if: always()
+        run: rm -rf node_modules
