@@ -30,16 +30,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build app and generate Azure Functions (SSR)
-        run: |
-          npm run build
-          npx @azure/static-web-apps-cli build --app-location . --output-location .output
+      - name: Build Next.js
+        run: npm run build
+
+      - name: Generate Azure Functions for SSR
+        run: npx swa build --app-location . --output-location .output
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          action: "upload"
-          app_location: "./app" # raiz do projeto
-          output_location: ".next" # onde o Next.js gera o build do app
-          api_location: ".output/functions" # onde o swa-cli gera as Azure Functions
+          action: upload
+          app_location: "." # raiz do projeto com next.config.js
+          output_location: ".next" # saída padrão do Next.js
+          api_location: ".output/functions" # onde ficam as Azure Functions geradas para SSR
