@@ -20,18 +20,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Next.js app
+      - name: Build Next.js project
         run: npm run build
 
       # Opcional: Salva artefatos de build para debugging
@@ -46,12 +45,8 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          action: "upload"
-          app_location: "." # Diretório raiz do app Next.js
-          output_location: ".next" # Para SSR com Next.js
-          skip_app_build: true
-
-      # Opcional: Limpeza de dependências após o job
-      - name: Clean up node_modules (optional)
-        if: always()
-        run: rm -rf node_modules
+          action: upload
+          app_location: "." # onde está o seu Next.js (raiz do projeto)
+          output_location: ".next" # saída do build para Next.js SSR
+          skip_app_build: true # já buildou acima
+          is_static_export: false # para SSR
