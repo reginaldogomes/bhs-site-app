@@ -8,8 +8,6 @@ import ContactForm from "@/components/ContactForm";
 import Main from "@/components/Main";
 
 import { WHATSAPP_NUMBER, EMAIL_CONTACT, LINKEDIN_LINK } from "@/constants";
-import { NextSeo } from "next-seo";
-import LeadForm from "@/components/LeadForm";
 
 const contactInfo = {
   phone: WHATSAPP_NUMBER,
@@ -84,7 +82,7 @@ const ContactPage: React.FC = () => {
 
             {/* LinkedIn Padrão (caso não haja no array) */}
             {contactInfo.socialMedia.findIndex(
-              (s) => s.name?.toLowerCase() === "linkedin",
+              (s) => s.name?.toLowerCase() === "linkedin"
             ) === -1 && (
               <a
                 href={LINKEDIN_LINK}
