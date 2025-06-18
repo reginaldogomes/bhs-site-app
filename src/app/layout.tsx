@@ -41,6 +41,28 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico", // Caminho relativo à pasta public
   },
+  openGraph: {
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: "https://bhsolutions.com.br",
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "pt_BR",
+    images: [
+      {
+        url: "/bhs-logo.png", // Caminho relativo à pasta public
+        width: 384,
+        height: 384,
+        alt: SITE_NAME,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: ["/bhs-logo.png"],
+  },
 };
 
 export default function RootLayout({
