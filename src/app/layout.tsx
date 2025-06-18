@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   keywords:
     "BH Solutions, tecnologia da informação, soluções corporativas, cloud computing, transformação digital, desenvolvimento de software, infraestrutura empresarial, inovação tecnológica, escalabilidade, eficiência operacional",
   robots: "index, follow",
+  icons: {
+    icon: "/favicon.ico", // Caminho relativo à pasta public
+  },
 };
 
 export default function RootLayout({
