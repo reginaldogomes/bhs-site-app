@@ -46,7 +46,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Para comentários em PR
           action: "upload"
           app_location: "/" # raiz do projeto
-          output_location: ".next" # saída do build Next.js
+          output_location: "out" # saída do build Next.js
           skip_app_build: true # já buildado acima
         env:
           IS_STATIC_EXPORT: true
