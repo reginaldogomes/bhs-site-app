@@ -13,6 +13,7 @@ import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 // };
 
 import { SITE_NAME, SITE_DESCRIPTION } from "../constants";
+import { GoogleTagManager } from "@/components/GoogleTagManager";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -37,6 +38,31 @@ export const metadata: Metadata = {
   keywords:
     "BH Solutions, tecnologia da informação, soluções corporativas, cloud computing, transformação digital, desenvolvimento de software, infraestrutura empresarial, inovação tecnológica, escalabilidade, eficiência operacional",
   robots: "index, follow",
+  icons: {
+    icon: "/favicon.ico", // Caminho relativo à pasta public
+  },
+  openGraph: {
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: "https://bhsolutions.com.br",
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "pt_BR",
+    images: [
+      {
+        url: "/bhs-logo.png", // Caminho relativo à pasta public
+        width: 384,
+        height: 384,
+        alt: SITE_NAME,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: ["/bhs-logo.png"],
+  },
 };
 
 export default function RootLayout({
@@ -47,6 +73,15 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={raleway.variable}>
       <body className="ntialiased">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N78BQVKX"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        <GoogleTagManager gtmId="GTM-TL9FBKFK" />
         <Header />
         {children}
         <Footer />
