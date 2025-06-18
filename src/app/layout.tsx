@@ -13,6 +13,7 @@ import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 // };
 
 import { SITE_NAME, SITE_DESCRIPTION } from "../constants";
+import { GoogleTagManager } from "@/components/GoogleTagManager";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -47,6 +48,15 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={raleway.variable}>
       <body className="ntialiased">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N78BQVKX"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        <GoogleTagManager gtmId="GTM-TL9FBKFK" />
         <Header />
         {children}
         <Footer />

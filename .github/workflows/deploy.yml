@@ -1,0 +1,43 @@
+name: Deploy Next.js to Azure Static Web Apps
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - feature/**
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      # Define a variável para habilitar GTM só na main
+      NEXT_PUBLIC_ENABLE_GTM: ${{ github.ref == 'refs/heads/main' && 'true' || 'false' }}
+      # GTM ID do segredo do repo (configure nas Secrets do GitHub)
+      NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/"
+          output_location: ".next"
+          skip_app_build: true
