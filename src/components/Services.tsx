@@ -9,7 +9,6 @@ import {
   FaProjectDiagram,
   FaRegChartBar,
 } from "react-icons/fa";
-import { title } from "process";
 
 const services = [
   {
@@ -62,7 +61,7 @@ const Services: React.FC = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-4">
         {services.map((service, index) => (
           <div
-            key={title}
+            key={service.title} // ou key={index} como alternativa
             className="cursor-pointer p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 ease-in-out"
           >
             <div className="flex justify-center text-4xl text-blue-600 mb-4">

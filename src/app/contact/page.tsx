@@ -82,7 +82,7 @@ const ContactPage: React.FC = () => {
 
             {/* LinkedIn Padrão (caso não haja no array) */}
             {contactInfo.socialMedia.findIndex(
-              (s) => s.name?.toLowerCase() === "linkedin"
+              (s) => s.name?.toLowerCase() === "linkedin",
             ) === -1 && (
               <a
                 href={LINKEDIN_LINK}
