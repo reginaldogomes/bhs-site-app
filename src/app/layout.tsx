@@ -33,10 +33,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: SITE_DESCRIPTION,
+  title:
+    "BH Solutions | Consultoria em Nuvem, Inteligência Artificial e Agentes de IA",
+  description:
+    "Consultoria especializada em transformação digital, computação em nuvem, inteligência artificial e agentes de IA. Transforme seu negócio com soluções inteligentes.consultoria em nuvem, transformação digital, inteligência artificial, agentes de IA, cloud, AI, Azure, automação, bh solutions",
   keywords:
-    "BH Solutions, tecnologia da informação, soluções corporativas, cloud computing, transformação digital, desenvolvimento de software, infraestrutura empresarial, inovação tecnológica, escalabilidade, eficiência operacional",
+    "BH Solutions, consultoria em nuvem, inteligência artificial, agentes de IA, Microsoft Azure, soluções em nuvem, transformação digital, segurança em nuvem, escalabilidade, inovação tecnológica",
   robots: "index, follow",
   icons: {
     icon: "/favicon.ico", // Caminho relativo à pasta public
@@ -72,7 +74,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={raleway.variable}>
-      <body className="ntialiased">
+      <body className="antialiased">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-N78BQVKX"

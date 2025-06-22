@@ -1,14 +1,13 @@
 "use client";
-import Link from "next/link";
 import React from "react";
 import LinkButton from "./Link";
 
 const heroData = {
   backgroundImage: "url('/bg-hero.jpeg')", // Substitua pelo caminho real da imagem
   overlayColor: "bg-primary/95",
-  title: "Transformação digital com o poder da Microsoft",
+  title: "Consultoria em Nuvem, Inteligência Artificial e Agentes de IA",
   description:
-    "Consultoria especializada em Power Platform, Azure e Microsoft 365 para empresas que querem evoluir com tecnologia, automação e dados inteligentes.",
+    "Planejamos, desenvolvemos e entregamos soluções digitais sob medida para acelerar a transformação do seu negócio.",
   button: {
     href: "/services",
     text: "Saiba Mais",
@@ -34,7 +33,7 @@ const Hero = () => {
           {heroData.description}
         </p>
         <LinkButton href="/about" variant="default">
-          Ir para Sobre
+          Agende uma consultoria{" "}
         </LinkButton>
       </div>
     </section>
