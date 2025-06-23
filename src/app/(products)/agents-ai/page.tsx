@@ -35,12 +35,12 @@ export default function AgenteIaPage() {
         },
       ]}
       technologies={[
-        "Next.js",
+        "Microsoft Azure",
         "OpenAI",
         "n8n",
-        "Supabase",
+        "WhatsApp Api",
         "Langchain",
-        "Azure",
+        "Google",
       ]}
       ctaTitle="Pronto para revolucionar seu atendimento?"
       ctaDescription="Implante um agente inteligente que aprende com o seu negócio e melhora a experiência do cliente."

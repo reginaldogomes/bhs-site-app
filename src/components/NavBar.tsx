@@ -9,6 +9,7 @@ const menuItems = [
   { label: "Inicial", href: "/" },
   { label: "Soluções", href: "/solutions" },
   { label: "Sobre", href: "/about" },
+  { label: "Produtos", href: "/products" },
   { label: "Contato", href: "/contact" },
 ];
 

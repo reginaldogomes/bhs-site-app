@@ -12,12 +12,24 @@ import {
 } from "lucide-react";
 
 const benefits = [
-  { icon: CheckCircle, text: "Redução de custos e perdas operacionais" },
-  { icon: BarChart3, text: "Mais agilidade e produtividade diária" },
-  { icon: RefreshCcw, text: "Informações em tempo real e seguras" },
-  { icon: Zap, text: "Automação de tarefas e processos internos" },
-  { icon: ShieldCheck, text: "Escalabilidade com segurança e controle" },
-  { icon: Globe, text: "Conectividade global com colaboração ativa" },
+  {
+    icon: CheckCircle,
+    text: "Redução de custos operacionais com soluções inteligentes",
+  },
+  { icon: BarChart3, text: "Mais produtividade com uso estratégico de dados" },
+  {
+    icon: RefreshCcw,
+    text: "Atualizações em tempo real com alta confiabilidade",
+  },
+  { icon: Zap, text: "Automação inteligente de tarefas com IA e RPA" },
+  {
+    icon: ShieldCheck,
+    text: "Escalabilidade segura em ambientes híbridos ou em nuvem",
+  },
+  {
+    icon: Globe,
+    text: "Infraestrutura conectada e colaborativa em qualquer lugar",
+  },
 ];
 
 const HighlightSection = () => (

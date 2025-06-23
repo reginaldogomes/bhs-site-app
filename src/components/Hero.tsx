@@ -5,7 +5,7 @@ import LinkButton from "./Link";
 const heroData = {
   backgroundImage: "url('/bg-hero.jpeg')", // Substitua pelo caminho real da imagem
   overlayColor: "bg-primary/95",
-  title: "Consultoria em Nuvem, Inteligência Artificial e Agentes de IA",
+  title: "Computação em Nuvem, Inteligência Artificial e Agentes de IA",
   description:
     "Planejamos, desenvolvemos e entregamos soluções digitais sob medida para acelerar a transformação do seu negócio.",
   button: {

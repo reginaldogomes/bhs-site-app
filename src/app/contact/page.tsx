@@ -5,7 +5,6 @@ import { FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { MdCall } from "react-icons/md"; // Importe o ícone de telefone
 
 import ContactForm from "@/components/ContactForm";
-import Main from "@/components/Main";
 
 import { WHATSAPP_NUMBER, EMAIL_CONTACT, LINKEDIN_LINK } from "@/constants";
 
@@ -31,7 +30,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <Main>
+    <>
       <PageHeading {...headingData} />
 
       <div className="container mx-auto rounded-lg p-6 gap-8 md:w-5/6 lg:w-4/6 xl:w-3/5">
@@ -82,7 +81,7 @@ const ContactPage: React.FC = () => {
 
             {/* LinkedIn Padrão (caso não haja no array) */}
             {contactInfo.socialMedia.findIndex(
-              (s) => s.name?.toLowerCase() === "linkedin",
+              (s) => s.name?.toLowerCase() === "linkedin"
             ) === -1 && (
               <a
                 href={LINKEDIN_LINK}
@@ -104,7 +103,7 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </Main>
+    </>
   );
 };
 
