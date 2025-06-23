@@ -1,57 +1,57 @@
 // src/components/Services.tsx
 import React from "react";
-import Link from "next/link";
 import {
   FaCloud,
+  FaRobot,
   FaCogs,
-  FaDatabase,
-  FaLaptopCode,
   FaProjectDiagram,
-  FaRegChartBar,
+  FaLaptopCode,
+  FaDatabase,
+  FaBrain,
 } from "react-icons/fa";
 
 const services = [
   {
-    title: "Consultoria em TI e Transformação Digital",
+    title: "Consultoria em Nuvem Azure",
     description:
-      "Planejamento estratégico, governança de TI e automação com a Power Platform.",
-    icon: <FaProjectDiagram />,
-    link: "/solutions/consultoria",
+      "Planejamento, migração e gerenciamento de ambientes em nuvem com foco em performance, escalabilidade e segurança.",
+    icon: <FaCloud />,
+    link: "/servicos/consultoria-nuvem",
+  },
+  {
+    title: "Inteligência Artificial Aplicada",
+    description:
+      "IA generativa, machine learning e análise preditiva para automação e inovação nos negócios.",
+    icon: <FaBrain />,
+    link: "/servicos/inteligencia-artificial",
+  },
+  {
+    title: "Agentes de IA e Copilots",
+    description:
+      "Desenvolvimento de agentes autônomos, copilots personalizados e integração com Azure AI Studio.",
+    icon: <FaRobot />,
+    link: "/servicos/agentes-ia",
+  },
+  {
+    title: "Power Platform e Automação",
+    description:
+      "Automatização de processos com Power Automate, Power Apps e integração com Microsoft 365.",
+    icon: <FaCogs />,
+    link: "/servicos/power-platform",
   },
   {
     title: "Desenvolvimento de Soluções Digitais",
     description:
-      "Web apps, sistemas sob demanda, integração de APIs e soluções personalizadas.",
+      "Web apps, APIs e integrações personalizadas com foco em produtividade e escalabilidade.",
     icon: <FaLaptopCode />,
     link: "/servicos/desenvolvimento-digital",
   },
   {
-    title: "Cloud Computing com Microsoft Azure",
+    title: "Governança de Dados e BI",
     description:
-      "Migração, monitoramento, segurança e serviços gerenciados em nuvem Azure.",
-    icon: <FaCloud />,
-    link: "/servicos/cloud-computing",
-  },
-  {
-    title: "Business Intelligence e Power Platform",
-    description:
-      "Dashboards com Power BI, Power Apps e automações com Power Automate.",
-    icon: <FaRegChartBar />,
-    link: "/servicos/business-intelligence",
-  },
-  {
-    title: "Automação de Processos",
-    description:
-      "Fluxos de trabalho inteligentes com Microsoft 365 e Power Automate.",
-    icon: <FaCogs />,
-    link: "/servicos/automacao-processos",
-  },
-  {
-    title: "Consultoria em Banco de Dados",
-    description:
-      "Gestão, performance e segurança de dados com tecnologias Microsoft.",
+      "Modelagem de dados, dashboards com Power BI e otimização de bancos de dados em ambientes híbridos.",
     icon: <FaDatabase />,
-    link: "/servicos/consultoria-banco-dados",
+    link: "/servicos/dados-corporativos",
   },
 ];
 

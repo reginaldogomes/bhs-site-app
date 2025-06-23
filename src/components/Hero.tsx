@@ -32,9 +32,7 @@ const Hero = () => {
         <p className="mt-4 text-lg md:text-xl capitalize text-white/90 w-8/12 mx-auto">
           {heroData.description}
         </p>
-        <LinkButton href="/about" variant="default">
-          Agende uma consultoria{" "}
-        </LinkButton>
+        <LinkButton href="/about">Agende uma consultoria </LinkButton>
       </div>
     </section>
   );
