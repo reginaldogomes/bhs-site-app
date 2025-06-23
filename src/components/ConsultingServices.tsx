@@ -14,113 +14,133 @@ interface Service {
 }
 
 const services: Service[] = [
-  {
-    title: "Power BI",
-    description: "Dashboards, relatórios gerenciais e integração com ERP/CRM.",
-    category: "Power Platform",
-    slug: "power-bi",
-  },
-  {
-    title: "Power Apps",
-    description:
-      "Aplicações personalizadas para processos internos empresariais.",
-    category: "Power Platform",
-    slug: "power-apps",
-  },
-  {
-    title: "Power Automate",
-    description: "Automação de fluxos de trabalho e processos de negócios.",
-    category: "Power Platform",
-    slug: "power-automate",
-  },
-  {
-    title: "Power Virtual Agents",
-    description: "Chatbots inteligentes com integração a sistemas e canais.",
-    category: "Power Platform",
-    slug: "power-virtual-agents",
-  },
-  {
-    title: "Power Pages",
-    description:
-      "Criação de sites externos com integração segura a dados corporativos.",
-    category: "Power Platform",
-    slug: "power-pages",
-  },
-  {
-    title: "Copilot Studio",
-    description:
-      "Criação de agentes com IA generativa personalizados para empresas.",
-    category: "Power Platform",
-    slug: "copilot-studio",
-  },
-  {
-    title: "Dataverse",
-    description: "Modelagem e gestão de dados empresariais com segurança.",
-    category: "Power Platform",
-    slug: "dataverse",
-  },
+  // Consultoria em Nuvem
   {
     title: "Arquitetura em Nuvem",
-    description: "Consultoria em IaaS, PaaS e SaaS com Microsoft Azure.",
-    category: "Microsoft Azure",
+    description:
+      "Planejamento e estruturação de ambientes escaláveis com Microsoft Azure.",
+    category: "Consultoria em Nuvem",
     slug: "arquitetura-nuvem",
   },
   {
     title: "Migração para Azure",
     description:
-      "Migração segura de servidores, sistemas e dados para a nuvem.",
-    category: "Microsoft Azure",
+      "Transição segura de servidores, sistemas e bancos de dados para a nuvem.",
+    category: "Consultoria em Nuvem",
     slug: "migracao-azure",
   },
   {
     title: "Segurança e Conformidade",
-    description: "Configuração com Azure Security Center e Microsoft Defender.",
-    category: "Microsoft Azure",
-    slug: "seguranca-conformidade",
-  },
-  {
-    title: "DevOps e Integrações",
-    description: "Pipelines, GitHub e integrações com Power Platform.",
-    category: "Microsoft Azure",
-    slug: "devops-integracoes",
-  },
-  {
-    title: "Machine Learning e IA",
     description:
-      "Modelos de aprendizado de máquina e serviços cognitivos Azure.",
-    category: "Microsoft Azure",
-    slug: "machine-learning-ia",
+      "Implementação de políticas de segurança com Azure Defender e Microsoft Purview.",
+    category: "Consultoria em Nuvem",
+    slug: "seguranca-e-conformidade",
+  },
+  {
+    title: "Governança e Intune",
+    description:
+      "Gerenciamento de dispositivos e identidade com Microsoft Intune e Entra ID.",
+    category: "Consultoria em Nuvem",
+    slug: "governanca-intune",
+  },
+
+  // Inteligência Artificial e Machine Learning
+  {
+    title: "Modelos de Machine Learning",
+    description:
+      "Desenvolvimento e deploy de modelos personalizados com Azure Machine Learning.",
+    category: "Inteligência Artificial",
+    slug: "machine-learning",
+  },
+  {
+    title: "Serviços Cognitivos Azure",
+    description:
+      "Análise de imagens, textos e voz com APIs inteligentes da Microsoft.",
+    category: "Inteligência Artificial",
+    slug: "servicos-cognitivos",
+  },
+  {
+    title: "Copilot Studio e IA Generativa",
+    description:
+      "Criação de agentes com IA generativa para atendimento, automação e produtividade.",
+    category: "Inteligência Artificial",
+    slug: "copilot-studio",
+  },
+
+  // Agentes de IA e Automação
+  {
+    title: "Power Virtual Agents",
+    description:
+      "Chatbots inteligentes com integração a canais como Teams, WhatsApp e sites.",
+    category: "Agentes de IA",
+    slug: "power-virtual-agents",
+  },
+  {
+    title: "Automação com Power Automate",
+    description:
+      "Criação de fluxos de trabalho automatizados e conectores personalizados.",
+    category: "Agentes de IA",
+    slug: "power-automate",
+  },
+  {
+    title: "Copilot no Microsoft 365",
+    description:
+      "Acelerando tarefas com IA integrada ao Word, Excel, Outlook e Teams.",
+    category: "Agentes de IA",
+    slug: "copilot-m365",
+  },
+
+  // Power Platform Integrada
+  {
+    title: "Dashboards com Power BI",
+    description:
+      "Visualizações interativas e relatórios com integração a sistemas legados.",
+    category: "Power Platform",
+    slug: "power-bi",
+  },
+  {
+    title: "Aplicações com Power Apps",
+    description:
+      "Apps personalizados de negócio conectados ao Dataverse ou SharePoint.",
+    category: "Power Platform",
+    slug: "power-apps",
+  },
+  {
+    title: "Power Pages",
+    description:
+      "Portais externos seguros com autenticação e acesso a dados internos.",
+    category: "Power Platform",
+    slug: "power-pages",
+  },
+  {
+    title: "Dataverse",
+    description:
+      "Modelo de dados corporativo centralizado, seguro e escalável.",
+    category: "Power Platform",
+    slug: "dataverse",
+  },
+
+  // Suporte ao Modern Workplace
+  {
+    title: "SharePoint Online",
+    description:
+      "Ambientes colaborativos com bibliotecas e fluxo de documentos.",
+    category: "Modern Workplace",
+    slug: "sharepoint",
   },
   {
     title: "Microsoft Teams e Outlook",
-    description: "Adoção e integração para comunicação e produtividade.",
-    category: "Microsoft 365",
+    description:
+      "Produtividade e colaboração com comunicação unificada e reuniões inteligentes.",
+    category: "Modern Workplace",
     slug: "teams-outlook",
   },
   {
-    title: "Migração e Configuração de E-mails",
-    description: "Migração para Microsoft 365 com segurança e suporte técnico.",
-    category: "Microsoft 365",
-    slug: "migracao-emails",
-  },
-  {
-    title: "Governança com Intune",
+    title: "Migração de E-mails",
     description:
-      "Gerenciamento e proteção de dispositivos com Microsoft Intune.",
-    category: "Microsoft 365",
-    slug: "intune-governanca",
-  },
-  {
-    title: "Ambientes com SharePoint",
-    description: "Ambientes colaborativos e bibliotecas documentais.",
-    category: "Microsoft 365",
-    slug: "sharepoint-ambientes",
-  },
-  {
-    title: "Microsoft Copilot",
-    description: "IA integrada às ferramentas para acelerar a produtividade.",
-    category: "Microsoft 365",
-    slug: "copilot",
+      "Transição segura de caixas de e-mail para Microsoft 365 com suporte completo.",
+    category: "Modern Workplace",
+    slug: "migracao-email",
   },
 ];
 
@@ -131,7 +151,7 @@ const groupedServices = services.reduce(
     (acc[service.category] ||= []).push(service);
     return acc;
   },
-  {} as Record<string, Service[]>,
+  {} as Record<string, Service[]>
 );
 
 const ConsultingServices = () => {
@@ -147,7 +167,7 @@ const ConsultingServices = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Serviços de Consultoria
+          Áreas com especialização
         </motion.h2>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
